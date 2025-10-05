@@ -30,15 +30,18 @@ body {
     flex-direction: column;
 }
 
+.footer {
+    margin-top: auto; /* push footer to bottom */
+}
+
 /* Footer Styles */
 .footer {
     margin-top: 4rem;
-    background: #262323;
+    background: #262323; /* match header color */
     color: white;
     padding: 1rem 2rem;
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: auto;
 }
 
 /* Header Styles */

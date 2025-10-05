@@ -24,23 +24,6 @@ body {
     min-height: 100vh;
 }
 
-.page {
-    min-height: calc(100vh - 120px); /* account for fixed header padding */
-    display: flex;
-    flex-direction: column;
-}
-
-/* Footer Styles */
-.footer {
-    margin-top: 4rem;
-    background: #262323;
-    color: white;
-    padding: 1rem 2rem;
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: auto;
-}
-
 /* Header Styles */
 .header {
     background: #262323;
@@ -84,26 +67,17 @@ body {
     color: white;
     text-decoration: none;
     font-weight: 500;
-    padding: 0.5rem 0.85rem;
+    padding: 0.5rem 1rem;
     border-radius: 25px;
     transition: all 0.3s ease;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
 }
 
 .header nav ul li a:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.header nav ul li a svg {
-    width: 20px;
-    height: 20px;
-    color: currentColor;
 }
 
 /* Header Search Bar Styles */
@@ -122,12 +96,11 @@ body {
     align-items: center;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    padding: 0.25rem 0.5rem;
+    padding: 0.25rem 0.5rem; /* leave space but keep compact */
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
     width: 200px;
-    min-height: 36px;
 }
 
 .header-search-wrapper:focus-within {
@@ -158,28 +131,15 @@ body {
     transform: translateY(-50%);
     background: #e96e6e;
     border: none;
-    border-radius: 999px;
-    width: 32px;
-    height: 32px;
-    aspect-ratio: 1 / 1;
-    padding: 0;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
     color: white;
-}
-
-.header-search-button svg {
-    width: 14px;
-    height: 14px;
-    color: inherit;
-}
-.header-search-button svg path {
-    stroke: #ffffff;
-    fill: none;
-    stroke-width: 2.5;
 }
 
 .header-search-button:hover {
@@ -264,27 +224,15 @@ h3 {
 .search-button {
     background: #e96e6e;
     border: none;
-    border-radius: 999px;
-    width: 56px;
-    height: 56px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
     color: white;
-}
-
-.search-button svg {
-    width: 36px;
-    height: 36px;
-    color: inherit;
-    display: block; /* avoid inline baseline shifting */
-}
-.search-button svg path {
-    stroke: #ffffff;
-    fill: none;
-    stroke-width: 2.5;
 }
 
 .search-button:hover {

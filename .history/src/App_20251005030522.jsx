@@ -13,22 +13,10 @@ function App() {
             <div className='page'>
                 <Header />
                 <Routes>
-                    <Route
-                        path='/'
-                        element={<Home />}
-                    />
-                    <Route
-                        path='/browse'
-                        element={<Browse />}
-                    />
-                    <Route
-                        path='/my-movies'
-                        element={<MyMovies />}
-                    />
-                    <Route
-                        path='/favourites-myreviews'
-                        element={<FavouritesReviews />}
-                    />
+                    <Route path='/' element={<Home />} />
+                    <Route path='/browse' element={<Browse />} />
+                    <Route path='/my-movies' element={<MyMovies />} />
+                    <Route path='/favourites-myreviews' element={<FavouritesReviews />} />
                 </Routes>
                 <Footer />
             </div>

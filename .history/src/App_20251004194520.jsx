@@ -1,0 +1,24 @@
+import "./App.css";
+import Header from "./components/Header";
+import SearchBar from "./components/SearchBar";
+
+function App() {
+    return (
+        <>
+            <Header />
+            <h1>
+                {" "}
+                Your Personal Movie{" "}
+                <span className='catalog-text'>Catalog</span>{" "}
+            </h1>
+            <h3>
+                Track movies you've watched, discover new favorites, and keep
+                your personal reviews all in one place. Your cinematic journey
+                starts here.
+            </h3>
+            <SearchBar />
+        </>
+    );
+}
+
+export default App;
