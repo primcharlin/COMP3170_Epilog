@@ -1,0 +1,238 @@
+[
+    {
+        "title": "50 First Dates",
+        "image": "images/50FirstDates.jpg" 
+    },
+    {
+        "title": "Happy Gilmore",
+        "image": "images/HappyGilmore.jpg"
+    },
+    {
+        "title": "Happy Gilmore 2",
+        "image": "images/HappyGilmore2.jpg"
+    },
+    {
+        "title": "Mr. Deeds",
+        "image": "images/MrDeeds.jpg"
+    },
+    {
+        "title": "The Hot Chick",
+        "image": "images/TheHotChick.jpg"
+    },
+    {
+        "title": "Jack and Jill",
+        "image": "images/JackAndJill.jpg"
+    },
+    {
+        "title": "The Do-Over",
+        "image": "images/TheDoOver.png"
+    },
+    {
+        "title": "Jay Kelly",
+        "image": "images/JayKelly.jpg"
+    },
+    {
+        "title": "Uncut Gems",
+        "image": "images/UncutGems.jpg"
+    },
+    {
+        "title": "Spaceman",
+        "image": "images/Spaceman.jpg"
+    },
+    {
+        "title": "Leo",
+        "image": "images/Leo.jpg"
+    },
+    {
+        "title": "You Are So Not Invited to My Bat Mitzvah",
+        "image": "images/YouAreSoNotInvitedtoMyBatMitzvah.jpg"
+    },
+    {
+        "title": "Murder Mystery",
+        "image": "images/MurderMystery.png"
+    },
+    {
+        "title": "Murder Mystery 2",
+        "image": "images/MurderMystery2.jpg"
+    },
+    {
+        "title": "Hustle",
+        "image": "images/Hustle.jpg"
+    },
+    {
+        "title": "Hubie Halloween",
+        "image": "images/HubieHalloween.jpg"
+    },
+    {
+        "title": "Hotel Transylvania",
+        "image": "images/HotelTransylvania.jpg"
+    },
+    {
+        "title": "Hotel Transylvania 2",
+        "image": "images/HotelTransylvania2.webp"
+    },
+    {
+        "title": "Hotel Transylvania 3",
+        "image": "images/HotelTransylvania3.jpg"
+    },
+    {
+        "title": "The Week Of",
+        "image": "images/TheWeekOf.jpg"
+    },
+    {
+        "title": "The Meyerowitz Stories",
+        "image": "images/TheMeyerowitzStories.jpg"
+    },
+    {
+        "title": "Sandy Wexler",
+        "image": "images/SandyWexler.jpg"
+    },
+    {
+        "title": "The Ridiculous 6",
+        "image": "images/TheRidiculous6.jpg"
+    },
+    {
+        "title": "Pixels",
+        "image": "images/Pixels.jpg"
+    },
+    {
+        "title": "The Cobbler",
+        "image": "images/TheCobbler.webp"
+    },
+    {
+        "title": "Men, Women & Children",
+        "image": "images/MenWomenAndChildren.jpg"
+    },
+    {
+        "title": "Blended",
+        "image": "images/Blended.jpg"
+    },
+    {
+        "title": "Grown Ups",
+        "image": "images/GrownUps.jpg"
+    },
+    {
+        "title": "Grown Ups 2",
+        "image": "images/GrownUps2.jpg"
+    },
+    {
+        "title": "That's My Boy",
+        "image": "images/ThatsMyBoy.jpg"
+    },
+    {
+        "title": "Zookeeper",
+        "image": "images/Zookeeper.jpg"
+    },
+    {
+        "title": "Bucky Larson: Born to Be a Star",
+        "image": "images/BuckyLarsonBornToBeAStar.jpg"
+    },
+    {
+        "title": "Just Go With It",
+        "image": "images/JustGoWithIt.jpg"
+    },
+    {
+        "title": "Funny People",
+        "image": "images/FunnyPeople.jpg"
+    },
+    {
+        "title": "Bedtime Stories",
+        "image": "images/BedtimeStories.jpg"
+    },
+    {
+        "title": "You Don't Mess with the Zohan",
+        "image": "images/YouDontMessWithTheZohan.jpg"
+    },
+    {
+        "title": "Click",
+        "image": "images/Click.jpg"
+    },
+    {
+        "title": "Reign Over Me",
+        "image": "images/ReignOverMe.jpg"
+    },
+    {
+        "title": "I Now Pronounce You Chuck & Larry",
+        "image": "images/INowPronounceYouChuckAndLarry.avif"
+    },
+    {
+        "title": "The Longest Yard",
+        "image": "images/TheLongestYard.jpg"
+    },
+    {
+        "title": "Spanglish",
+        "image": "images/Spanglish.jpg"
+    },
+    {
+        "title": "Anger Management",
+        "image": "images/AngerManagement.jpg"
+    },
+    {
+        "title": "Deuce Bigalow: European Gigolo",
+        "image": "images/DeuceBigalowEuropeanGigolo.avif"
+    },
+    {
+        "title": "Eight Crazy Nights",
+        "image": "images/EightCrazyNights.jpg"
+    },
+    {
+        "title": "Punch-Drunk Love",
+        "image": "images/PunchDrunkLove.jpg"
+    },
+    {
+        "title": "The Animal",
+        "image": "images/TheAnimal.jpg"
+    },
+    {
+        "title": "Little Nicky",
+        "image": "images/LittleNicky.jpg"
+    },
+    {
+        "title": "Deuce Bigalow: Male Gigolo",
+        "image": "images/DeuceBigalowMaleGigolo.jpg"
+    },
+    {
+        "title": "Big Daddy",
+        "image": "images/BigDaddy.jpg"
+    },
+    {
+        "title": "The Waterboy",
+        "image": "images/TheWaterboy.jpg"
+    },
+    {
+        "title": "Dirty Work",
+        "image": "images/DirtyWork.jpg"
+    },
+    {
+        "title": "The Wedding Singer",
+        "image": "images/TheWeddingSinger.jpg"
+    },
+    {
+        "title": "Bulletproof",
+        "image": "images/Bulletproof.jpg"
+    },
+    {
+        "title": "Billy Madison",
+        "image": "images/BillyMadison.jpg"
+    },
+    {
+        "title": "Mixed Nuts",
+        "image": "images/MixedNuts.jpg"
+    },
+    {
+        "title": "Airheads",
+        "image": "images/Airheads.jpg"
+    },
+    {
+        "title": "Coneheads",
+        "image": "images/ConeHeads.jpg"
+    },
+    {
+        "title": "Shakes the Clown",
+        "image": "images/ShakesTheClown.jpg"
+    },
+    {
+        "title": "Going Overboard",
+        "image": "images/GoingOverboard.jpg"
+    }
+]
