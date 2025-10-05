@@ -1,119 +1,177 @@
 [
     {
         "title": "No Movie Found",
-        "image": "images/NoMovie.avif" 
+        "image": "images/NoMovie.avif"
+
+        
     },
     {
         "title": "50 First Dates",
-        "image": "images/50FirstDates.jpg" 
+        "image": "images/50FirstDates.jpg",
+        "trailer":"https://www.youtube.com/watch?v=Q_2AbjYeSMI" ,
+        "discription": "Henry Roth is a man afraid of commitment until he meets the beautiful Lucy. They hit it off and Henry think he's finally found the girl of his dreams..."
     },
     {
         "title": "Happy Gilmore",
-        "image": "images/HappyGilmore.jpg"
+        "image": "images/HappyGilmore.jpg",
+        "trailer":"https://www.youtube.com/watch?v=y1emDAYCfVQ",
+        "discription":"After his grandmother's house is repossessed by the IRS, a bad tempered hockey player takes his talents to golf to earn the big bucks and get his grandmothers ..."
     },
     {
         "title": "Happy Gilmore 2",
-        "image": "images/HappyGilmore2.webp"
+        "image": "images/HappyGilmore2.webp",
+        "trailer":"https://www.youtube.com/watch?v=alBuSbDUSig",
+        "discription":"Adam Sandler and his Happy Gilmore 2 revisit classic moments from the original movie and discuss life on set of the sequel."
     },
     {
         "title": "Mr. Deeds",
-        "image": "images/MrDeeds.jpg"
+        "image": "images/MrDeeds.jpg",
+        "trailer":"https://www.youtube.com/watch?v=tzxJn8Awk0c",
+        "discription":"Longfellow Deeds (Adam Sandler) is a small town guy who is taken to the big city when he learns he has an inheritance of $40 billion from a long lost uncle."
     },
     {
         "title": "The Hot Chick",
-        "image": "images/TheHotChick.jpg"
+        "image": "images/TheHotChick.jpg",
+        "trailer":"https://www.youtube.com/watch?v=6z5zbY-0QCA",
+        "discription":"An attractive and popular teenager, who is mean-spirited toward others, finds herself in the body of an older man, and must find a way to get back to her ..."
     },
     {
         "title": "Jack and Jill",
-        "image": "images/JackAndJill.jpg"
+        "image": "images/JackAndJill.jpg",
+        "trailer":"https://www.youtube.com/watch?v=YyK_CTdrFyw",
+        "discription":"A family man is forced to deal with his twin sister from the Bronx comes to Los Angeles for a visit -- then won't leave."
     },
     {
         "title": "The Do-Over",
-        "image": "images/TheDoOver.png"
+        "image": "images/TheDoOver.png",
+        "trailer":"https://www.youtube.com/watch?v=lZ1fKYmF4qU",
+        "discription":"Two down-on-their-luck guys decide to fake their own deaths and start over with new identities--but they discover that the people they're pretending to be are ..."
     },
     {
         "title": "Jay Kelly",
-        "image": "images/JayKelly.jpg"
+        "image": "images/JayKelly.jpg",
+        "trailer":"https://www.youtube.com/watch?v=I8GbcVkqZwQ",
+        "discription":"Famous movie actor Jay Kelly embarks on a journey of self-discovery, confronting his past and present with his devoted manager Ron."
     },
     {
         "title": "Uncut Gems",
-        "image": "images/UncutGems.jpg"
+        "image": "images/UncutGems.jpg",
+        "trailer":"https://www.youtube.com/watch?v=PtR5llR2NEM",
+        "discription":"A charismatic New York City jeweler always on the lookout for the next big score, makes a series of high-stakes bets that could lead to the windfall of a ..."
     },
     {
         "title": "Spaceman",
-        "image": "images/Spaceman.jpg"
+        "image": "images/Spaceman.jpg",
+        "trailer":"https://www.youtube.com/watch?v=rNZ0xKaCdus",
+        "discription":"An astronaut concerned with the state of his life back on Earth is helped by an ancient creature he discovers in the bowels of his ship."
     },
     {
         "title": "Leo",
-        "image": "images/Leo.jpg"
+        "image": "images/Leo.jpg",
+        "trailer":"https://youtu.be/G_AEL-Xo5l8",
+        "discription":"Adam Sandler is a lizard named Leo in this coming-of-age musical comedy about the last year of elementary school as seen through the eyes of a class pet."
     },
     {
         "title": "You Are So Not Invited to My Bat Mitzvah",
-        "image": "images/YouAreSoNotInvitedtoMyBatMitzvah.jpg"
+        "image": "images/YouAreSoNotInvitedtoMyBatMitzvah.jpg",
+        "trailer":"https://www.youtube.com/watch?v=LXciH__hbTw",
+        "discription":"It follows Stacey Friedman as she prepares for her bat mitzvah, but her plans comedically unravel and threaten to ruin the event."
     },
     {
         "title": "Murder Mystery",
-        "image": "images/MurderMystery.png"
+        "image": "images/MurderMystery.png",
+        "trailer":"https://www.youtube.com/watch?v=5YEVQDr2f3Q",
+        "discription":"t's a wild weekend of Clue characters and it's a murder mystery. Inspector de la Croix immediately sees the Spitzes as his prime suspects and Nick has to solve ..."
     },
     {
         "title": "Murder Mystery 2",
-        "image": "images/MurderMystery2.jpg"
+        "image": "images/MurderMystery2.jpg",
+        "trailer":"https://www.youtube.com/watch?v=wfxv8LHM6qU",
+        "discription":"Murder Mystery 2 brings back the charm of Adam Sandler and Jennifer Anniston. Their chemistry is good. However, the faster action pacing actually works against ..."
     },
     {
         "title": "Hustle",
-        "image": "images/Hustle.jpg"
+        "image": "images/Hustle.jpg",
+        "trailer":"https://youtu.be/sB5n6wnT61w",
+        "discription":"A washed-up basketball scout discovers a phenomenal street ball player while in Spain and sees the prospect as his opportunity to get back into the NBA."
     },
     {
         "title": "Hubie Halloween",
-        "image": "images/HubieHalloween.jpg"
+        "image": "images/HubieHalloween.jpg",
+        "trailer":"https://youtu.be/kY3SuNvqQPw",
+        "discription":"Despite his devotion to his hometown of Salem (and its Halloween celebration), Hubie Dubois is a figure of mockery for kids and adults alike."
     },
     {
         "title": "Hotel Transylvania",
-        "image": "images/HotelTransylvania.jpg"
+        "image": "images/HotelTransylvania.jpg",
+        "trailer":"https://www.youtube.com/watch?v=ldBroBrV6Fg",
+        "discription":"Dracula, who operates a high-end resort away from the human world, goes into overprotective mode when a boy discovers the resort and falls for the count's ..."
     },
     {
         "title": "Hotel Transylvania 2",
-        "image": "images/HotelTransylvania2.webp"
+        "image": "images/HotelTransylvania2.webp",
+        "trailer":"https://www.youtube.com/watch?v=I7NR9MLK5W4",
+        "discription":"Dracula and his friends try to bring out the monster in his half human, half vampire grandson in order to keep Mavis from leaving the hotel."
     },
     {
         "title": "Hotel Transylvania 3",
-        "image": "images/HotelTransylvania3.jpg"
+        "image": "images/HotelTransylvania3.jpg",
+        "trailer":"https://www.youtube.com/watch?v=d5exSS74Lh0",
+        "discription":"Count Dracula and company participate in a cruise for sea-loving monsters, unaware that their boat is being commandeered by the monster-hating Van Helsing ..."
     },
     {
         "title": "The Week Of",
-        "image": "images/TheWeekOf.jpg"
+        "image": "images/TheWeekOf.jpg",
+        "trailer":"https://youtu.be/vc0fb3xhFHY",
+        "discription":"Two fathers with opposing personalities come together to celebrate the wedding of their children. They are forced to spend the longest week of their lives ..."
     },
     {
         "title": "The Meyerowitz Stories",
-        "image": "images/TheMeyerowitzStories.jpg"
+        "image": "images/TheMeyerowitzStories.jpg",
+        "trailer":"https://youtu.be/sM5vWQUX9V4",
+        "discription":"An intergenerational tale of adult siblings (Adam Sandler, Ben Stiller, and Elizabeth Marvel) contending with the long shadow their strong-willed father"
     },
     {
         "title": "Sandy Wexler",
-        "image": "images/SandyWexler.jpg"
+        "image": "images/SandyWexler.jpg",
+        "trailer":"https://youtu.be/F-WVf564icI",
+        "discription":"Sandy Wexler (Adam Sandler) is a talent manager working in Los Angeles in the 1990s, diligently representing a group of eccentric clients on the fringes of ..."
     },
     {
         "title": "The Ridiculous 6",
-        "image": "images/TheRidiculous6.jpg"
+        "image": "images/TheRidiculous6.jpg",
+        "trailer":"https://www.imdb.com/video/embed/vi4288918041/",
+        "discription":"An outlaw who was raised by Native Americans discovers that he has five half-brothers."
     },
     {
         "title": "Pixels",
-        "image": "images/Pixels.jpg"
+        "image": "images/Pixels.jpg",
+        "trailer":"https://www.youtube.com/watch?v=eIOcWZOQL5M",
+        "discription":"When aliens misinterpret video feeds of classic arcade games as a declaration of war, they attack the Earth in the form of the video games."
     },
     {
         "title": "The Cobbler",
-        "image": "images/TheCobbler.webp"
+        "image": "images/TheCobbler.webp",
+        "trailer":"https://www.youtube.com/watch?v=kMVGScC0vDA",
+        "discription":"Max Simkin repairs shoes in the same New York shop that has been in his family for generations. Disenchanted with the grind of daily life, Max stumbles upon ..."
     },
     {
         "title": "Men, Women & Children",
-        "image": "images/MenWomenAndChildren.jpg"
+        "image": "images/MenWomenAndChildren.jpg",
+        "trailer":"https://youtu.be/_WCw2RgA8oY",
+        "discription":"A group of high school teenagers and their parents attempt to navigate the many ways the Internet has changed their relationships."
     },
     {
         "title": "Blended",
-        "image": "images/Blended.jpg"
+        "image": "images/Blended.jpg",
+        "trailer":"After a bad blind date, a man and woman find themselves stuck together at a resort for families, where their attraction grows as their respective kids ...",
+        "discription":"After a bad blind date, a man and woman find themselves stuck together at a resort for families, where their attraction grows..."
     },
     {
         "title": "Grown Ups",
-        "image": "images/GrownUps.jpg"
+        "image": "images/GrownUps.jpg",
+        "trailer":"",
+        "discription":""
     },
     {
         "title": "Grown Ups 2",
