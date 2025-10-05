@@ -117,67 +117,99 @@
     },
     {
         "title": "Grown Ups 2",
-        "image": "images/GrownUps2.jpg"
+        "image": "images/GrownUps2.jpg",
+        "trailer": "https://www.youtube.com/watch?v=Sq5CIH0duMk",
+        "description": "A man who is unhappy with his life discovers a remote control that allows him to fast forward and rewind to different parts of his life."
     },
     {
         "title": "That's My Boy",
-        "image": "images/ThatsMyBoy.jpg"
+        "image": "images/ThatsMyBoy.jpg",
+        "trailer": "https://www.youtube.com/watch?v=HZJKgniCvUI",
+        "description": "A man who is unhappy with his life discovers a remote control that allows him to fast forward and rewind to different parts of his life."
     },
     {
         "title": "Zookeeper",
-        "image": "images/Zookeeper.jpg"
+        "image": "images/Zookeeper.jpg",
+        "trailer": "https://www.youtube.com/watch?v=pNJxxRi7AeE",
+        "description": "A man who is unhappy with his life discovers a remote control that allows him to fast forward and rewind to different parts of his life."
     },
     {
         "title": "Bucky Larson: Born to Be a Star",
-        "image": "images/BuckyLarsonBornToBeAStar.jpg"
+        "image": "images/BuckyLarsonBornToBeAStar.jpg",
+        "trailer": "https://www.youtube.com/watch?v=cRT93a8xE5s",
+        "description": "A man who is unhappy with his life discovers a remote control that allows him to fast forward and rewind to different parts of his life."
     },
     {
         "title": "Just Go With It",
-        "image": "images/JustGoWithIt.jpg"
+        "image": "images/JustGoWithIt.jpg",
+        "trailer": "https://www.youtube.com/watch?v=fpj7i2CPt8M",
+        "description": "A man who is unhappy with his life discovers a remote control that allows him to fast forward and rewind to different parts of his life."
     },
     {
         "title": "Funny People",
-        "image": "images/FunnyPeople.jpg"
+        "image": "images/FunnyPeople.jpg",
+        "trailer": "https://www.youtube.com/watch?v=rQ7_OYZis98",
+        "description": "A comedian who is diagnosed with a terminal illness decides to live his life to the fullest."
     },
     {
         "title": "Bedtime Stories",
-        "image": "images/BedtimeStories.jpg"
+        "image": "images/BedtimeStories.jpg",
+        "trailer": "https://www.youtube.com/watch?v=oWh97nOY1n0",
+        "description": "A man who is unhappy with his life discovers a remote control that allows him to fast forward and rewind to different parts of his life."
     },
     {
         "title": "You Don't Mess with the Zohan",
-        "image": "images/YouDontMessWithTheZohan.jpg"
+        "image": "images/YouDontMessWithTheZohan.jpg",
+        "trailer": "https://www.youtube.com/watch?v=uCYpnb3qFdE",
+        "description": "An Israeli counter-terrorism agent is sent to New York City to protect a wealthy Jewish woman."
     },
     {
         "title": "Click",
-        "image": "images/Click.jpg"
+        "image": "images/Click.jpg",
+        "trailer": "https://www.youtube.com/watch?v=zZNC5emNyEQ",
+        "description": "A man who is unhappy with his life discovers a remote control that allows him to fast forward and rewind to different parts of his life."
     },
     {
         "title": "Reign Over Me",
-        "image": "images/ReignOverMe.jpg"
+        "image": "images/ReignOverMe.jpg",
+        "trailer": "https://www.youtube.com/watch?v=yzQYokimcg0",
+        "description": "A man who loses his family in the September 11 attacks on New York City meets a woman who lost her husband in the same attack."
     },
     {
         "title": "I Now Pronounce You Chuck & Larry",
-        "image": "images/INowPronounceYouChuckAndLarry.avif"
+        "image": "images/INowPronounceYouChuckAndLarry.avif",
+        "trailer": "https://www.youtube.com/watch?v=y2hxNuaju78",
+        "description": "Two New York firefighters are forced to go on the run when they are framed for a crime they did not commit."
     },
     {
         "title": "The Longest Yard",
-        "image": "images/TheLongestYard.jpg"
+        "image": "images/TheLongestYard.jpg",
+        "trailer": "https://www.youtube.com/watch?v=l1BF53bXP8I",
+        "description": "A prison inmate becomes the star player on the prison's football team."
     },
     {
         "title": "Spanglish",
-        "image": "images/Spanglish.jpg"
+        "image": "images/Spanglish.jpg",
+        "trailer": "https://www.youtube.com/watch?v=--2IG_rxfUM",
+        "description": "A woman and her husband in Los Angeles who deal with each other and their daughter's new English-speaking nanny from Mexico."
     },
     {
         "title": "Anger Management",
-        "image": "images/AngerManagement.jpg"
+        "image": "images/AngerManagement.jpg",
+        "trailer": "https://www.youtube.com/watch?v=jA_j1WNDd_Q",
+        "description": "An anger management therapist finds himself in a courtroom battle with his own alter ego."
     },
     {
         "title": "Deuce Bigalow: European Gigolo",
-        "image": "images/DeuceBigalowEuropeanGigolo.avif"
+        "image": "images/DeuceBigalowEuropeanGigolo.avif",
+        "trailer": "https://www.youtube.com/watch?v=vDTU4-tLR_g",
+        "description": "Deuce Bigalow is a man who is used as a male prostitute in a European brothel, but is fired after he accidentally kills a customer."
     },
     {
         "title": "Eight Crazy Nights",
-        "image": "images/EightCrazyNights.jpg"
+        "image": "images/EightCrazyNights.jpg",
+        "trailer": "https://www.youtube.com/watch?v=VoFIpnSGnZk",
+        "description": "An animated comedy about a young man who is forced to spend eight nights at his family's holiday house in the Catskills."
     },
     {
         "title": "Punch-Drunk Love",
@@ -185,47 +217,69 @@
     },
     {
         "title": "The Animal",
-        "image": "images/TheAnimal.jpg"
+        "image": "images/TheAnimal.jpg",
+        "trailer": "https://www.youtube.com/watch?v=pBwcksgKcFs",
+        "description": "A zoo keeper is given a chimpanzee by mistake and the animal escapes and wreaks havoc on the town."
     },
     {
         "title": "Little Nicky",
-        "image": "images/LittleNicky.jpg"
+        "image": "images/LittleNicky.jpg",
+        "trailer": "https://www.youtube.com/watch?v=_e3FajuSgs0",
+        "description": "Nicky is a demon child who is sent to live with his human family, but is accidentally released from his cage and begins wreaking havoc on the world."
     },
     {
         "title": "Deuce Bigalow: Male Gigolo",
-        "image": "images/DeuceBigalowMaleGigolo.jpg"
+        "image": "images/DeuceBigalowMaleGigolo.jpg",
+        "trailer": "hhttps://www.youtube.com/watch?v=Zpzb2hIp8co",
+        "description": "Deuce Bigalow is a man who is used as a male prostitute in a Florida brothel, but is fired after he accidentally kills a customer."
     },
     {
         "title": "Big Daddy",
-        "image": "images/BigDaddy.jpg"
+        "image": "images/BigDaddy.jpg",
+        "trailer": "https://www.youtube.com/watch?v=100QmFmR7uE",
+        "description": "Sonny Koufax is a workaholic lawyer who is ordered by a judge to spend time with his son, Walter, whom he left in the care of his mother."
     },
     {
         "title": "The Waterboy",
-        "image": "images/TheWaterboy.jpg"
+        "image": "images/TheWaterboy.jpg",
+        "trailer": "https://www.youtube.com/watch?v=W9f02aQHdAY",
+        "description": "Bubba, a high school waterboy, is used by the school's football team, and his friends, to bully other students."
     },
     {
         "title": "Dirty Work",
-        "image": "images/DirtyWork.jpg"
+        "image": "images/DirtyWork.jpg",
+        "trailer": "https://www.youtube.com/watch?v=fU81TsgFKqI",
+        "description": "Two slobs are hired by a tabloid newspaper to pose as businessmen and go undercover to bust a mobster who is using his hookers to launder money."
     },
     {
         "title": "The Wedding Singer",
-        "image": "images/TheWeddingSinger.jpg"
+        "image": "images/TheWeddingSinger.jpg",
+        "trailer": "https://www.youtube.com/watch?v=Yy-TwYB1UQw",
+        "description": "Robbie Gould is a wannabe rock singer in New Jersey who is dumped by his fiancée, Linda, when he tells her he cannot give up his career as a wedding singer."
     },
     {
         "title": "Bulletproof",
-        "image": "images/Bulletproof.jpg"
+        "image": "images/Bulletproof.jpg",
+        "trailer": "https://www.youtube.com/watch?v=iOPXStM4blg",
+        "description": "Two criminals, Keats and Moses, end their friendship, when Keats turns out to be an undercover cop. Many years later, the two are forced to work together when Keats is assigned to protect Moses as a witness."
     },
     {
         "title": "Billy Madison",
-        "image": "images/BillyMadison.jpg"
+        "image": "images/BillyMadison.jpg",
+        "trailer": "https://www.youtube.com/watch?v=V2Q40rXJuMU",
+        "description": "In order to inherit his fed-up father Brian's hotel empire, immature and lazy Billy Madison must repeat grades one through twelve all over again. The further Billy progresses, the harder his hated rival Eric Gordon tries to stop him."
     },
     {
         "title": "Mixed Nuts",
-        "image": "images/MixedNuts.jpg"
+        "image": "images/MixedNuts.jpg",
+        "trailer": "https://www.youtube.com/watch?v=dwBG2CXDXcc",
+        "description": "The events focus around a crisis hotline business on one crazy night during the Christmas holidays."
     },
     {
         "title": "Airheads",
-        "image": "images/Airheads.jpg"
+        "image": "images/Airheads.jpg",
+        "trailer": "https://www.youtube.com/watch?v=mpxOTk4DDJo",
+        "description": "Three band members hoping for a big break head to a radio station to play their demo tape and wind up holding everyone hostage with plastic guns when the head D.J. refuses to play them."
     },
     {
         "title": "Coneheads",
@@ -233,10 +287,14 @@
     },
     {
         "title": "Shakes the Clown",
-        "image": "images/ShakesTheClown.jpg"
+        "image": "images/ShakesTheClown.jpg",
+        "trailer": "https://www.youtube.com/watch?v=V7KOt3Hugd4",
+        "description": "Shakes is good at his job as party clown - when he's sober and shows up. Five druggy clowns frame him for the murder of his boss."
     },
     {
         "title": "Going Overboard",
-        "image": "images/GoingOverboard.jpg"
+        "image": "images/GoingOverboard.jpg",
+        "trailer": "https://www.youtube.com/results?search_query=Going+Overboard",
+        "description": "A struggling young comedian takes a menial job on a cruise ship hoping for his big chance to make it in the world of cruise-ship comedy."
     }
 ]
