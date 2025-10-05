@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Browse from "./pages/Browse";
 import MyMovies from "./pages/MyMovies";
-import FavouritesReviews from "./pages/FavouritesReviews";
+import Watchlist from "./pages/Watchlist";
 
 function App() {
     return (
@@ -26,8 +26,12 @@ function App() {
                         element={<MyMovies />}
                     />
                     <Route
+                        path='/watchlist'
+                        element={<Watchlist />}
+                    />
+                    <Route
                         path='/favourites-myreviews'
-                        element={<FavouritesReviews />}
+                        element={<Watchlist />}
                     />
                 </Routes>
                 <Footer />
