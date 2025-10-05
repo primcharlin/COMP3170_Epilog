@@ -1,9 +1,5 @@
 [
     {
-        "title": "No Movie Found",
-        "image": "images/NoMovie.avif" 
-    },
-    {
         "title": "50 First Dates",
         "image": "images/50FirstDates.jpg" 
     },

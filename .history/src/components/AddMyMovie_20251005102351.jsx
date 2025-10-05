@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import SearchBar from "./SearchBar";
-import moviesData from "../../data/epilog.json";
 
 function AddMyMovie() {
     const [rating, setRating] = useState(0);
@@ -12,21 +11,12 @@ function AddMyMovie() {
     const [selectedMovie, setSelectedMovie] = useState(null);
 
     const handleSearchSubmit = async (term) => {
-        const normalized = (term || "").trim().toLowerCase();
-        const match = moviesData.find((m) => m.title && m.title.toLowerCase().includes(normalized));
-        if (match) {
-            setSelectedMovie({
-                title: match.title,
-                posterUrl: `/${match.image}`,
-            });
-            return;
-        }
-        if (moviesData.length > 0) {
-            setSelectedMovie({
-                title: moviesData[0].title,
-                posterUrl: `/${moviesData[0].image}`,
-            });
-        }
+        // Placeholder: in a real app, query API by term.
+        // For now, just set a mock selected movie using the term as title.
+        setSelectedMovie({
+            title: term,
+            posterUrl: "https://via.placeholder.com/200x300?text=Poster",
+        });
     };
 
     return (
@@ -38,8 +28,8 @@ function AddMyMovie() {
                 </div>
             )}
             <form>
-                <div className="form-control form-control--stack">
-                    <label htmlFor="SearchMovie">Search Movie...</label>
+                <div className="form-control">
+                    <label htmlFor="title">Title</label>
                     <SearchBar onSearch={handleSearchSubmit} placeholder="Search for a movie title..." />
                 </div>
                 <div className="form-control">

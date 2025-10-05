@@ -1,9 +1,5 @@
 [
     {
-        "title": "No Movie Found",
-        "image": "images/NoMovie.avif" 
-    },
-    {
         "title": "50 First Dates",
         "image": "images/50FirstDates.jpg" 
     },
@@ -13,7 +9,7 @@
     },
     {
         "title": "Happy Gilmore 2",
-        "image": "images/HappyGilmore2.jpg"
+        "image": ""
     },
     {
         "title": "Mr. Deeds",

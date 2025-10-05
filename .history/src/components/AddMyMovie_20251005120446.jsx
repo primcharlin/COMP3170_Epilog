@@ -38,8 +38,8 @@ function AddMyMovie() {
                 </div>
             )}
             <form>
-                <div className="form-control form-control--stack">
-                    <label htmlFor="SearchMovie">Search Movie...</label>
+                <div className="form-control">
+                    <label htmlFor="title">Title</label>
                     <SearchBar onSearch={handleSearchSubmit} placeholder="Search for a movie title..." />
                 </div>
                 <div className="form-control">

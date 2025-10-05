@@ -344,18 +344,12 @@ h3 {
 
 .form-control {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
+    flex-direction: column;
+    gap: 6px;
 }
 
 .form-control label {
     display: block;
-}
-
-.form-control--stack {
-    flex-direction: column;
-    align-items: stretch;
 }
 
 /* Rating styles */
@@ -367,30 +361,11 @@ h3 {
 .rating-star {
     background: transparent;
     border: none;
-    font-size: 1.25rem;
+    cursor: pointer;
+    font-size: 1.5rem;
     color: #777777;
-    padding: 2px;
-    line-height: 1;
 }
 
 .rating-star.active {
     color: #e6b800;
-}
-
-/* Selected movie preview */
-.selected-movie {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 10px;
-}
-.selected-movie img {
-    width: 160px;
-    height: 240px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-.selected-movie-title {
-    font-weight: 600;
 }

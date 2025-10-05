@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import SearchBar from "./SearchBar";
-import moviesData from "../../data/epilog.json";
 
 function AddMyMovie() {
     const [rating, setRating] = useState(0);
@@ -9,38 +7,12 @@ function AddMyMovie() {
         setRating(value);
     };
 
-    const [selectedMovie, setSelectedMovie] = useState(null);
-
-    const handleSearchSubmit = async (term) => {
-        const normalized = (term || "").trim().toLowerCase();
-        const match = moviesData.find((m) => m.title && m.title.toLowerCase().includes(normalized));
-        if (match) {
-            setSelectedMovie({
-                title: match.title,
-                posterUrl: `/${match.image}`,
-            });
-            return;
-        }
-        if (moviesData.length > 0) {
-            setSelectedMovie({
-                title: moviesData[0].title,
-                posterUrl: `/${moviesData[0].image}`,
-            });
-        }
-    };
-
     return (
         <div className="form-container">
-            {selectedMovie && (
-                <div className="selected-movie">
-                    <img src={selectedMovie.posterUrl} alt={`${selectedMovie.title} poster`} />
-                    <div className="selected-movie-title">{selectedMovie.title}</div>
-                </div>
-            )}
             <form>
-                <div className="form-control form-control--stack">
-                    <label htmlFor="SearchMovie">Search Movie...</label>
-                    <SearchBar onSearch={handleSearchSubmit} placeholder="Search for a movie title..." />
+                <div className="form-control">
+                    <label htmlFor="title">Title</label>
+                    <input type="text" name="title" placeholder="Movie Title..."/>
                 </div>
                 <div className="form-control">
                     <label htmlFor="rating">Rating</label>
@@ -59,7 +31,7 @@ function AddMyMovie() {
                         <input type="hidden" name="rating" value={rating} />
                     </div>
                 </div>
-                <div className="form-control form-control--stack">
+                <div className="form-control">
                     <label htmlFor="notes">Notes</label>
                     <textarea name="notes" placeholder="Notes" rows="4"/>
                 </div>

@@ -28,8 +28,7 @@ const SearchBar = ({ onSearch, placeholder = "Search for movies..." }) => {
                         className='search-input'
                     />
                     <button
-                        type='button'
-                        onClick={handleSearch}
+                        type='submit'
                         className='search-button'>
                         <svg
                             width='20'

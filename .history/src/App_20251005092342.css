@@ -367,6 +367,7 @@ h3 {
 .rating-star {
     background: transparent;
     border: none;
+    cursor: pointer;
     font-size: 1.25rem;
     color: #777777;
     padding: 2px;
@@ -375,22 +376,4 @@ h3 {
 
 .rating-star.active {
     color: #e6b800;
-}
-
-/* Selected movie preview */
-.selected-movie {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 10px;
-}
-.selected-movie img {
-    width: 160px;
-    height: 240px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-.selected-movie-title {
-    font-weight: 600;
 }

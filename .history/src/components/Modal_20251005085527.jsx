@@ -1,4 +1,4 @@
-import '../App.css'
+import './App.css'
 
 function Modal({ isOpen, onClose, children, title }) {
   if (!isOpen) return null;

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import SearchBar from "./SearchBar";
-import moviesData from "../../data/epilog.json";
 
 function AddMyMovie() {
     const [rating, setRating] = useState(0);
@@ -11,22 +10,11 @@ function AddMyMovie() {
 
     const [selectedMovie, setSelectedMovie] = useState(null);
 
-    const handleSearchSubmit = async (term) => {
-        const normalized = (term || "").trim().toLowerCase();
-        const match = moviesData.find((m) => m.title && m.title.toLowerCase().includes(normalized));
-        if (match) {
-            setSelectedMovie({
-                title: match.title,
-                posterUrl: `/${match.image}`,
-            });
-            return;
-        }
-        if (moviesData.length > 0) {
-            setSelectedMovie({
-                title: moviesData[0].title,
-                posterUrl: `/${moviesData[0].image}`,
-            });
-        }
+    const handleSearchSubmit = async () => {
+        setSelectedMovie({
+            title: "50 First Dates",
+            posterUrl: "/50-first-dates.jpg",
+        });
     };
 
     return (
@@ -38,8 +26,8 @@ function AddMyMovie() {
                 </div>
             )}
             <form>
-                <div className="form-control form-control--stack">
-                    <label htmlFor="SearchMovie">Search Movie...</label>
+                <div className="form-control">
+                    <label htmlFor="title">Title</label>
                     <SearchBar onSearch={handleSearchSubmit} placeholder="Search for a movie title..." />
                 </div>
                 <div className="form-control">

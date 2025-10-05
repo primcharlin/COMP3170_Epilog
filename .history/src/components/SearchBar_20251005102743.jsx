@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 
-const SearchBar = ({ onSearch, placeholder = "Search for movies..." }) => {
+const SearchBar = () => {
     const [searchTerm, setSearchTerm] = useState("");
 
     const handleSearch = (e) => {
         e.preventDefault();
-        if (typeof onSearch === "function") {
-            onSearch(searchTerm);
-        }
+        console.log("Searching for:", searchTerm);
+        // Add your search logic here
     };
 
     const handleInputChange = (e) => {
@@ -22,14 +21,13 @@ const SearchBar = ({ onSearch, placeholder = "Search for movies..." }) => {
                 <div className='search-input-wrapper'>
                     <input
                         type='text'
-                        placeholder={placeholder}
+                        placeholder='Search for movies...'
                         value={searchTerm}
                         onChange={handleInputChange}
                         className='search-input'
                     />
                     <button
-                        type='button'
-                        onClick={handleSearch}
+                        type='submit'
                         className='search-button'>
                         <svg
                             width='20'
