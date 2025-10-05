@@ -402,8 +402,8 @@ h3 {
 
 /* VHS card styles */
 .vhs-card {
-    width: 100px;
-    height: 400px;
+    width: 120px;
+    height: 360px;
     background-size: cover;
     background-position: center;
     border-radius: 6px;
@@ -413,27 +413,21 @@ h3 {
 }
 .vhs-card-overlay {
     position: absolute;
-    inset: 0 0 0 0;
+    inset: 0;
     background: linear-gradient(0deg, rgba(0,0,0,0.65), rgba(0,0,0,0.2));
 }
 .vhs-card-title {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(-270deg);
+    transform: translate(-50%, -50%) rotate(-90deg);
     transform-origin: center;
     color: #ffffff;
     font-weight: 800;
-    font-size: 1.2rem; 
+    font-size: 1.2rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     text-shadow: 0 2px 8px rgba(0,0,0,0.7);
-}
-.vhs-card-title.long {
-    font-size: 1rem;
-}
-.vhs-card-title.xlong {
-    font-size: 0.85rem;
 }
 
 .my-movies-container {
