@@ -1,0 +1,300 @@
+[
+    {
+        "title": "No Movie Found",
+        "image": "images/NoMovie.avif"
+
+        
+    },
+    {
+        "title": "50 First Dates",
+        "image": "images/50FirstDates.jpg",
+        "trailer":"https://www.youtube.com/watch?v=Q_2AbjYeSMI" ,
+        "discription": "Henry Roth is a man afraid of commitment until he meets the beautiful Lucy. They hit it off and Henry think he's finally found the girl of his dreams."
+    },
+    {
+        "title": "Happy Gilmore",
+        "image": "images/HappyGilmore.jpg",
+        "trailer":"https://www.youtube.com/watch?v=y1emDAYCfVQ",
+        "discription":"After his grandmother's house is repossessed by the IRS, a bad tempered hockey player takes his talents to golf to earn the big bucks and get his grandmothers ..."
+    },
+    {
+        "title": "Happy Gilmore 2",
+        "image": "images/HappyGilmore2.webp",
+        "trailer":"https://www.youtube.com/watch?v=alBuSbDUSig",
+        "discription":"Adam Sandler and his Happy Gilmore 2 revisit classic moments from the original movie and discuss life on set of the sequel."
+    },
+    {
+        "title": "Mr. Deeds",
+        "image": "images/MrDeeds.jpg",
+        "trailer":"https://www.youtube.com/watch?v=tzxJn8Awk0c",
+        "discription":"Longfellow Deeds (Adam Sandler) is a small town guy who is taken to the big city when he learns he has an inheritance of $40 billion from a long lost uncle."
+    },
+    {
+        "title": "The Hot Chick",
+        "image": "images/TheHotChick.jpg",
+        "trailer":"https://www.youtube.com/watch?v=6z5zbY-0QCA",
+        "discription":"An attractive and popular teenager, who is mean-spirited toward others, finds herself in the body of an older man, and must find a way to get back to her ..."
+    },
+    {
+        "title": "Jack and Jill",
+        "image": "images/JackAndJill.jpg",
+        "trailer":"https://www.youtube.com/watch?v=YyK_CTdrFyw",
+        "discription":"A family man is forced to deal with his twin sister from the Bronx comes to Los Angeles for a visit -- then won't leave."
+    },
+    {
+        "title": "The Do-Over",
+        "image": "images/TheDoOver.png",
+        "trailer":"https://www.youtube.com/watch?v=lZ1fKYmF4qU",
+        "discription":"Two down-on-their-luck guys decide to fake their own deaths and start over with new identities--but they discover that the people they're pretending to be are ..."
+    },
+    {
+        "title": "Jay Kelly",
+        "image": "images/JayKelly.jpg",
+        "trailer":"https://www.youtube.com/watch?v=I8GbcVkqZwQ",
+        "discription":"Famous movie actor Jay Kelly embarks on a journey of self-discovery, confronting his past and present with his devoted manager Ron."
+    },
+    {
+        "title": "Uncut Gems",
+        "image": "images/UncutGems.jpg",
+        "trailer":"https://www.youtube.com/watch?v=PtR5llR2NEM",
+        "discription":"A charismatic New York City jeweler always on the lookout for the next big score, makes a series of high-stakes bets that could lead to the windfall of a ..."
+    },
+    {
+        "title": "Spaceman",
+        "image": "images/Spaceman.jpg",
+        "trailer":"https://www.youtube.com/watch?v=rNZ0xKaCdus",
+        "discription":"An astronaut concerned with the state of his life back on Earth is helped by an ancient creature he discovers in the bowels of his ship."
+    },
+    {
+        "title": "Leo",
+        "image": "images/Leo.jpg",
+        "trailer":"https://youtu.be/G_AEL-Xo5l8",
+        "discription":"Adam Sandler is a lizard named Leo in this coming-of-age musical comedy about the last year of elementary school as seen through the eyes of a class pet."
+    },
+    {
+        "title": "You Are So Not Invited to My Bat Mitzvah",
+        "image": "images/YouAreSoNotInvitedtoMyBatMitzvah.jpg",
+        "trailer":"https://www.youtube.com/watch?v=LXciH__hbTw",
+        "discription":"It follows Stacey Friedman as she prepares for her bat mitzvah, but her plans comedically unravel and threaten to ruin the event."
+    },
+    {
+        "title": "Murder Mystery",
+        "image": "images/MurderMystery.png",
+        "trailer":"https://www.youtube.com/watch?v=5YEVQDr2f3Q",
+        "discription":"t's a wild weekend of Clue characters and it's a murder mystery. Inspector de la Croix immediately sees the Spitzes as his prime suspects and Nick has to solve ..."
+    },
+    {
+        "title": "Murder Mystery 2",
+        "image": "images/MurderMystery2.jpg",
+        "trailer":"https://www.youtube.com/watch?v=wfxv8LHM6qU",
+        "discription":"Murder Mystery 2 brings back the charm of Adam Sandler and Jennifer Anniston. Their chemistry is good. However, the faster action pacing actually works against ..."
+    },
+    {
+        "title": "Hustle",
+        "image": "images/Hustle.jpg",
+        "trailer":"https://youtu.be/sB5n6wnT61w",
+        "discription":"A washed-up basketball scout discovers a phenomenal street ball player while in Spain and sees the prospect as his opportunity to get back into the NBA."
+    },
+    {
+        "title": "Hubie Halloween",
+        "image": "images/HubieHalloween.jpg",
+        "trailer":"https://youtu.be/kY3SuNvqQPw",
+        "discription":"Despite his devotion to his hometown of Salem (and its Halloween celebration), Hubie Dubois is a figure of mockery for kids and adults alike."
+    },
+    {
+        "title": "Hotel Transylvania",
+        "image": "images/HotelTransylvania.jpg",
+        "trailer":"https://www.youtube.com/watch?v=ldBroBrV6Fg",
+        "discription":"Dracula, who operates a high-end resort away from the human world, goes into overprotective mode when a boy discovers the resort and falls for the count's ..."
+    },
+    {
+        "title": "Hotel Transylvania 2",
+        "image": "images/HotelTransylvania2.webp",
+        "trailer":"",
+        "discription":""
+    },
+    {
+        "title": "Hotel Transylvania 3",
+        "image": "images/HotelTransylvania3.jpg",
+        "trailer":"https://www.youtube.com/watch?v=I7NR9MLK5W4",
+        "discription":"Dracula and his friends try to bring out the monster in his half human, half vampire grandson in order to keep Mavis from leaving the hotel."
+    },
+    {
+        "title": "The Week Of",
+        "image": "images/TheWeekOf.jpg",
+        "trailer":"",
+        "discription":""
+    },
+    {
+        "title": "The Meyerowitz Stories",
+        "image": "images/TheMeyerowitzStories.jpg",
+        "trailer":"",
+        "discription":""
+    },
+    {
+        "title": "Sandy Wexler",
+        "image": "images/SandyWexler.jpg",
+        "trailer":"",
+        "discription":""
+    },
+    {
+        "title": "The Ridiculous 6",
+        "image": "images/TheRidiculous6.jpg",
+        "trailer":"",
+        "discription":""
+    },
+    {
+        "title": "Pixels",
+        "image": "images/Pixels.jpg",
+        "trailer":"",
+        "discription":""
+    },
+    {
+        "title": "The Cobbler",
+        "image": "images/TheCobbler.webp",
+        "trailer":"",
+        "discription":""
+    },
+    {
+        "title": "Men, Women & Children",
+        "image": "images/MenWomenAndChildren.jpg",
+        "trailer":"",
+        "discription":""
+    },
+    {
+        "title": "Blended",
+        "image": "images/Blended.jpg",
+        "trailer":"",
+        "discription":""
+    },
+    {
+        "title": "Grown Ups",
+        "image": "images/GrownUps.jpg",
+        "trailer":"",
+        "discription":""
+    },
+    {
+        "title": "Grown Ups 2",
+        "image": "images/GrownUps2.jpg"
+    },
+    {
+        "title": "That's My Boy",
+        "image": "images/ThatsMyBoy.jpg"
+    },
+    {
+        "title": "Zookeeper",
+        "image": "images/Zookeeper.jpg"
+    },
+    {
+        "title": "Bucky Larson: Born to Be a Star",
+        "image": "images/BuckyLarsonBornToBeAStar.jpg"
+    },
+    {
+        "title": "Just Go With It",
+        "image": "images/JustGoWithIt.jpg"
+    },
+    {
+        "title": "Funny People",
+        "image": "images/FunnyPeople.jpg"
+    },
+    {
+        "title": "Bedtime Stories",
+        "image": "images/BedtimeStories.jpg"
+    },
+    {
+        "title": "You Don't Mess with the Zohan",
+        "image": "images/YouDontMessWithTheZohan.jpg"
+    },
+    {
+        "title": "Click",
+        "image": "images/Click.jpg"
+    },
+    {
+        "title": "Reign Over Me",
+        "image": "images/ReignOverMe.jpg"
+    },
+    {
+        "title": "I Now Pronounce You Chuck & Larry",
+        "image": "images/INowPronounceYouChuckAndLarry.avif"
+    },
+    {
+        "title": "The Longest Yard",
+        "image": "images/TheLongestYard.jpg"
+    },
+    {
+        "title": "Spanglish",
+        "image": "images/Spanglish.jpg"
+    },
+    {
+        "title": "Anger Management",
+        "image": "images/AngerManagement.jpg"
+    },
+    {
+        "title": "Deuce Bigalow: European Gigolo",
+        "image": "images/DeuceBigalowEuropeanGigolo.avif"
+    },
+    {
+        "title": "Eight Crazy Nights",
+        "image": "images/EightCrazyNights.jpg"
+    },
+    {
+        "title": "Punch-Drunk Love",
+        "image": "images/PunchDrunkLove.jpg"
+    },
+    {
+        "title": "The Animal",
+        "image": "images/TheAnimal.jpg"
+    },
+    {
+        "title": "Little Nicky",
+        "image": "images/LittleNicky.jpg"
+    },
+    {
+        "title": "Deuce Bigalow: Male Gigolo",
+        "image": "images/DeuceBigalowMaleGigolo.jpg"
+    },
+    {
+        "title": "Big Daddy",
+        "image": "images/BigDaddy.jpg"
+    },
+    {
+        "title": "The Waterboy",
+        "image": "images/TheWaterboy.jpg"
+    },
+    {
+        "title": "Dirty Work",
+        "image": "images/DirtyWork.jpg"
+    },
+    {
+        "title": "The Wedding Singer",
+        "image": "images/TheWeddingSinger.jpg"
+    },
+    {
+        "title": "Bulletproof",
+        "image": "images/Bulletproof.jpg"
+    },
+    {
+        "title": "Billy Madison",
+        "image": "images/BillyMadison.jpg"
+    },
+    {
+        "title": "Mixed Nuts",
+        "image": "images/MixedNuts.jpg"
+    },
+    {
+        "title": "Airheads",
+        "image": "images/Airheads.jpg"
+    },
+    {
+        "title": "Coneheads",
+        "image": "images/ConeHeads.jpg"
+    },
+    {
+        "title": "Shakes the Clown",
+        "image": "images/ShakesTheClown.jpg"
+    },
+    {
+        "title": "Going Overboard",
+        "image": "images/GoingOverboard.jpg"
+    }
+]

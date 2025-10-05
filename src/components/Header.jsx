@@ -78,7 +78,7 @@ const Header = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link to='/favourites-myreviews'>
+                            <Link to='/watchlist'>
                                 {/* Favourites & My Reviews (heart) */}
                                 <svg
                                     width='20'
@@ -94,7 +94,7 @@ const Header = () => {
                                         strokeLinejoin='round'
                                     />
                                 </svg>
-                                <span>Favourites & My Reviews</span>
+                                <span>Watchlist</span>
                             </Link>
                         </li>
                     </ul>
