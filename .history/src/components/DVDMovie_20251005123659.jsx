@@ -1,7 +1,7 @@
 import React from "react";
 import moviesData from "../../data/epilog.json";
 
-function DVDMovie({ title, onClick }) {
+function DVDMovie({ title }) {
     const movie = moviesData.find((m) => m.title === title);
     const bgUrl = movie && movie.image ? `/${movie.image}` : "/images/NoMovie.avif";
     const titleLength = (title || "").length;
@@ -13,7 +13,6 @@ function DVDMovie({ title, onClick }) {
             style={{ backgroundImage: `url(${bgUrl})` }}
             role="img"
             aria-label={title}
-            onClick={onClick}
         >
             <div className="vhs-card-overlay" />
             <div className={`vhs-card-title ${titleSizeClass}`}>{title}</div>

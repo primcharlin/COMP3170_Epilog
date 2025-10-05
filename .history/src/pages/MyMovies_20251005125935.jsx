@@ -8,7 +8,7 @@ import { createRoutesFromChildren, createRoutesFromElements } from "react-router
 const MyMovies = () => {
     const [isAddModalOpen, setIsAddModalOpen] = useState(false);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-    const [selectedMovie, setSelectedMovie] = useState(null);
+    const [selectedTitle, setSelectedTitle] = useState(current);
 
     return (
         <div className='page-section'>
@@ -23,11 +23,11 @@ const MyMovies = () => {
                 <AddMyMovie />
             </Modal>
             <div className="my-movies-container">
-                <DVDMovie title="50 First Dates" posterUrl="/images/50FirstDates.jpg" onClick={() => { setSelectedMovie ({title: "50 First Dates", posterUrl: "/images/50FirstDates.jpg", rating: "4", notes: "One of the best Adam Sandlar movies!", dateWatched: "2025-08-15", status: "completed"}); setIsEditModalOpen(true)}} />
-                <DVDMovie title="Happy Gilmore" posterUrl="/images/HappyGilmore.jpg" onClick={() => { setSelectedMovie("Happy Gilmore"); setIsEditModalOpen(true); }} />
-                <DVDMovie title="Happy Gilmore 2" posterUrl="/images/HappyGilmore2.webp" onClick={() => { setSelectedMovie("Happy Gilmore 2"); setIsEditModalOpen(true); }} />
-                <DVDMovie title="Mr. Deeds" posterUrl="/images/MrDeeds.jpg" onClick={() => { setSelectedMovie("Mr. Deeds"); setIsEditModalOpen(true); }} />
-                <DVDMovie title="The Hot Chick" onClick={() => { setSelectedMovie("The Hot Chick"); setIsEditModalOpen(true); }} />
+                <DVDMovie title="50 First Dates" onClick={() => { setSelectedTitle("50 First Dates"); setIsEditModalOpen(true); }} />
+                <DVDMovie title="Happy Gilmore" onClick={() => { setSelectedTitle("Happy Gilmore"); setIsEditModalOpen(true); }} />
+                <DVDMovie title="Happy Gilmore 2" onClick={() => { setSelectedTitle("Happy Gilmore 2"); setIsEditModalOpen(true); }} />
+                <DVDMovie title="Mr. Deeds" onClick={() => { setSelectedTitle("Mr. Deeds"); setIsEditModalOpen(true); }} />
+                <DVDMovie title="The Hot Chick" onClick={() => { setSelectedTitle("The Hot Chick"); setIsEditModalOpen(true); }} />
             </div>
 
             <Modal
@@ -35,7 +35,7 @@ const MyMovies = () => {
                 onClose={() => setIsEditModalOpen(false)}
                 title="Edit My Movie"
             >
-                {selectedMovie && <EditMyMovie movie={selectedMovie} />}
+                <EditMyMovie movie={{ title: selectedTitle }} />
             </Modal>
         </div>
     );
