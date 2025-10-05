@@ -27,17 +27,8 @@ function EditMyMovie({ movie, onEdit, onSave }) {
     const handleEditClick = () => {
         if (isEditing) {
             // Save changes
-            if (onSave) {
-                const updatedMovie = {
-                    ...movie,
-                    rating: currentRating,
-                    notes: currentNotes,
-                    dateWatched: currentDateWatched,
-                    status: currentStatus
-                };
-                onSave(updatedMovie);
-            }
             setIsEditing(false);
+            // You can add save logic here
         } else {
             // Enter edit mode
             setIsEditing(true);

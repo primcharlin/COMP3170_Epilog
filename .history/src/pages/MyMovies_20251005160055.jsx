@@ -58,15 +58,6 @@ const MyMovies = () => {
         setMyMoviesData(prev => prev.filter(movie => movie.title !== titleToRemove));
     };
 
-    const handleUpdateMovie = (updatedMovie) => {
-        setMyMoviesData(prev => 
-            prev.map(movie => 
-                movie.title === updatedMovie.title ? updatedMovie : movie
-            )
-        );
-        setIsEditModalOpen(false);
-    };
-
     return (
         <div className='page-section'>
             <h2>My Movies</h2>
@@ -97,7 +88,6 @@ const MyMovies = () => {
                                 }); 
                                 setIsEditModalOpen(true); 
                             }}
-                            onRemove={handleRemoveMovie}
                         />
                     );
                 })}
@@ -114,7 +104,7 @@ const MyMovies = () => {
                 onClose={() => setIsEditModalOpen(false)}
                 title="Edit My Movie"
             >
-                {selectedMovie && <EditMyMovie movie={selectedMovie} onSave={handleUpdateMovie} />}
+                {selectedMovie && <EditMyMovie movie={selectedMovie} />}
             </Modal>
         </div>
     );

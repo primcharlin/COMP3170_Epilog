@@ -11,7 +11,7 @@ const MyMovies = () => {
     const [selectedMovie, setSelectedMovie] = useState(null);
 
     // Array of movies with their individual data
-    const [myMoviesData, setMyMoviesData] = useState([
+    const myMoviesData = [
         {
             title: "50 First Dates",
             rating: 4,
@@ -47,25 +47,7 @@ const MyMovies = () => {
             dateWatched: "2024-08-30",
             status: "complete"
         }
-    ]);
-
-    const handleAddMovie = (newMovie) => {
-        setMyMoviesData(prev => [...prev, newMovie]);
-        setIsAddModalOpen(false);
-    };
-
-    const handleRemoveMovie = (titleToRemove) => {
-        setMyMoviesData(prev => prev.filter(movie => movie.title !== titleToRemove));
-    };
-
-    const handleUpdateMovie = (updatedMovie) => {
-        setMyMoviesData(prev => 
-            prev.map(movie => 
-                movie.title === updatedMovie.title ? updatedMovie : movie
-            )
-        );
-        setIsEditModalOpen(false);
-    };
+    ];
 
     return (
         <div className='page-section'>
@@ -77,30 +59,28 @@ const MyMovies = () => {
                 onClose={() => setIsAddModalOpen(false)}
                 title="Add My Movie"
             >
-                <AddMyMovie onSave={handleAddMovie} />
+                <AddMyMovie />
             </Modal>
             <div className="my-movies-container">
-                {myMoviesData.map((myMovie) => {
-                    // Find the corresponding movie data from epilog.json for the image
-                    const movieData = moviesData.find(m => m.title === myMovie.title);
-                    const posterUrl = movieData?.image ? `/${movieData.image}` : "/images/NoMovie.avif";
-                    
-                    return (
+                {moviesData
+                    .filter(movie => moviesToShow.includes(movie.title))
+                    .map((movie) => (
                         <DVDMovie
-                            key={myMovie.title}
-                            title={myMovie.title}
-                            posterUrl={posterUrl}
+                            key={movie.title}
+                            title={movie.title}
+                            posterUrl={movie.image ? `/${movie.image}` : "/images/NoMovie.avif"}
                             onClick={() => { 
                                 setSelectedMovie({
-                                    ...myMovie,
-                                    image: movieData?.image || "images/NoMovie.avif"
+                                    ...movie,
+                                    rating: 0,
+                                    notes: "",
+                                    dateWatched: "",
+                                    status: "ongoing",
                                 }); 
                                 setIsEditModalOpen(true); 
                             }}
-                            onRemove={handleRemoveMovie}
                         />
-                    );
-                })}
+                    ))}
                 {/* Example hardcoded movies */}
                {/* <DVDMovie title="50 First Dates" posterUrl="/images/50FirstDates.jpg" onClick={() => { setSelectedMovie ({title: "50 First Dates", posterUrl: "/images/50FirstDates.jpg", rating: "4", notes: "One of the best Adam Sandlar movies!", dateWatched: "2025-08-15", status: "completed"}); setIsEditModalOpen(true)}} />
                 <DVDMovie title="Happy Gilmore" posterUrl="/images/HappyGilmore.jpg" onClick={() => { setSelectedMovie("Happy Gilmore"); setIsEditModalOpen(true); }} />
@@ -114,7 +94,7 @@ const MyMovies = () => {
                 onClose={() => setIsEditModalOpen(false)}
                 title="Edit My Movie"
             >
-                {selectedMovie && <EditMyMovie movie={selectedMovie} onSave={handleUpdateMovie} />}
+                {selectedMovie && <EditMyMovie movie={selectedMovie} />}
             </Modal>
         </div>
     );

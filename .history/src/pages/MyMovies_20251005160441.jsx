@@ -114,7 +114,7 @@ const MyMovies = () => {
                 onClose={() => setIsEditModalOpen(false)}
                 title="Edit My Movie"
             >
-                {selectedMovie && <EditMyMovie movie={selectedMovie} onSave={handleUpdateMovie} />}
+                {selectedMovie && <EditMyMovie movie={selectedMovie} />}
             </Modal>
         </div>
     );
