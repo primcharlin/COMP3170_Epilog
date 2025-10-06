@@ -46,8 +46,8 @@ body {
 
 /* Footer Styles */
 .footer {
-    position: fixed;
-    bottom: 0;
+    position: absolute;
+
     width: 100vw;
     min-height: 10vh;
     background: #262323;

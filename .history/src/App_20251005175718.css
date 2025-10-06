@@ -46,10 +46,9 @@ body {
 
 /* Footer Styles */
 .footer {
-    position: fixed;
     bottom: 0;
     width: 100vw;
-    min-height: 10vh;
+    min-height: 15vh;
     background: #262323;
     color: white;
     text-align: center;
