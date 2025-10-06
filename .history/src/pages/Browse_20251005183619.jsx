@@ -15,8 +15,7 @@ const Browse = () => {
   const moviesToShow = movieData.slice(1);
 
   return (
-
-    <div className='page-section'>
+    <>
       <h2>Browse Movies</h2>
       <div className="browse-grid">
         {moviesToShow.map((movie, index) => (
@@ -29,8 +28,7 @@ const Browse = () => {
           />
         ))}
       </div>
- 
-    </div>
+    </>
   );
 };
 
