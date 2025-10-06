@@ -62,7 +62,7 @@ const Watchlist = () => {
                                 <h3 className="watchlist-title">{movie.title}</h3>
                             </Link>
                             <button
-                                className="remove-btn-watchlist"
+                                className="remove-btn"
                                 onClick={() => removeFromWatchlist(movie.title)}
                             >
                                 Remove

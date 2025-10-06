@@ -566,7 +566,7 @@ h3 {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Watchlist Styles */
+/* Watchlist Styles 
 .page-section h2 {
     color: white;
     font-size: 2.5rem;
@@ -579,7 +579,7 @@ h3 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: titleGlow 3s ease-in-out infinite alternate;
-}
+}*/
 
 @keyframes titleGlow {
     0% {
@@ -591,14 +591,14 @@ h3 {
     }
 }
 
-.page-section p {
+/*.page-section p {
     color: #aaaaaa;
     font-size: 1.1rem;
     text-align: center;
     margin-bottom: 2rem;
     line-height: 1.6;
     font-style: italic;
-}
+}*/
 
 .watchlist-container {
     display: grid;
