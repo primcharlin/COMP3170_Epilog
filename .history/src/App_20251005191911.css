@@ -586,6 +586,8 @@ h3 {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     border-color: rgba(233, 110, 110, 0.3);
     background: rgba(255, 255, 255, 0.08);
+    transition: opacity 0.3s ease;
+    background: linear-gradient(135deg, rgba(233, 110, 110, 0.1), rgba(255, 255, 255, 0.05));
 }
 
 .basic-movie-card::after {

@@ -577,22 +577,6 @@ h3 {
     height: 380px;
 }
 
-.basic-movie-card:hover::before {
-    opacity: 1;
-}
-
-.basic-movie-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border-color: rgba(233, 110, 110, 0.3);
-    background: rgba(255, 255, 255, 0.08);
-}
-
-.basic-movie-card::after {
-    background: linear-gradient(135deg, rgba(233, 110, 110, 0.1), rgba(255, 255, 255, 0.05));
-    transition: opacity 0.3s ease;
-}
-
 .movie-img {
     width: 100%;
     height: 220px;
@@ -719,7 +703,7 @@ h3 {
     opacity: 1;
 }
 
-.watchlist-item:hover {
+.watchlist-item:hover .basic-movie-card:hover{
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     border-color: rgba(233, 110, 110, 0.3);
