@@ -44,19 +44,14 @@ body {
 
 /* Footer Styles */
 .footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
     margin-top: 4rem;
     background: #262323;
+    position: absolute;
     color: white;
     padding: 1rem 2rem;
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    min-height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center
+    margin-top: auto;
 }
 
 /* Header Styles */
