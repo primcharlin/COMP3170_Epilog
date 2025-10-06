@@ -47,25 +47,7 @@ const MyMovies = () => {
             dateWatched: "2024-08-30",
             status: "complete"
         }
-    ]);
-
-    const handleAddMovie = (newMovie) => {
-        setMyMoviesData(prev => [...prev, newMovie]);
-        setIsAddModalOpen(false);
-    };
-
-    const handleRemoveMovie = (titleToRemove) => {
-        setMyMoviesData(prev => prev.filter(movie => movie.title !== titleToRemove));
-    };
-
-    const handleUpdateMovie = (updatedMovie) => {
-        setMyMoviesData(prev => 
-            prev.map(movie => 
-                movie.title === updatedMovie.title ? updatedMovie : movie
-            )
-        );
-        setIsEditModalOpen(false);
-    };
+    ];
 
     return (
         <div className='page-section'>
@@ -77,7 +59,7 @@ const MyMovies = () => {
                 onClose={() => setIsAddModalOpen(false)}
                 title="Add My Movie"
             >
-                <AddMyMovie onSave={handleAddMovie} />
+                <AddMyMovie />
             </Modal>
             <div className="my-movies-container">
                 {myMoviesData.map((myMovie) => {
@@ -97,7 +79,6 @@ const MyMovies = () => {
                                 }); 
                                 setIsEditModalOpen(true); 
                             }}
-                            onRemove={handleRemoveMovie}
                         />
                     );
                 })}
@@ -114,7 +95,7 @@ const MyMovies = () => {
                 onClose={() => setIsEditModalOpen(false)}
                 title="Edit My Movie"
             >
-                {selectedMovie && <EditMyMovie movie={selectedMovie} onSave={handleUpdateMovie} />}
+                {selectedMovie && <EditMyMovie movie={selectedMovie} />}
             </Modal>
         </div>
     );

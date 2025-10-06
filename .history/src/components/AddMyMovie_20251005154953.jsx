@@ -54,7 +54,7 @@ function AddMyMovie({ onSave }) {
                     <div className="selected-movie-title">{selectedMovie.title}</div>
                 </div>
             )}
-            <form onSubmit={handleSave}>
+            <form>
                 <div className="form-control form-control--stack">
                     <label htmlFor="SearchMovie">Search Movie...</label>
                     <SearchBar onSearch={handleSearchSubmit} placeholder="Search for a movie title..." />
@@ -78,36 +78,21 @@ function AddMyMovie({ onSave }) {
                 </div>
                 <div className="form-control form-control--stack">
                     <label htmlFor="notes">Notes</label>
-                    <textarea 
-                        name="notes" 
-                        placeholder="Notes" 
-                        rows="4"
-                        value={notes}
-                        onChange={(e) => setNotes(e.target.value)}
-                    />
+                    <textarea name="notes" placeholder="Notes" rows="4"/>
                 </div>
                 <div className="form-control">
                     <label htmlFor="date-watched">Date Watched</label>
-                    <input 
-                        type="date" 
-                        name="date-watched"
-                        value={dateWatched}
-                        onChange={(e) => setDateWatched(e.target.value)}
-                    />
+                    <input type="date" name="date-watched"/>
                 </div>
                 <div className="form-control">
                     <label htmlFor="status">Status</label>
-                    <select 
-                        name="status" 
-                        value={status}
-                        onChange={(e) => setStatus(e.target.value)}
-                    >
+                    <select name="status" defaultValue="ongoing">
                         <option value="ongoing">ongoing</option>
                         <option value="complete">complete</option>
                         <option value="cancelled">cancelled</option>
                     </select>
                 </div>
-                <button type="submit" className="save">SAVE</button>
+                <button className="save">SAVE</button>
             </form>
         </div>
     );

@@ -26,6 +26,10 @@ function App() {
                         element={<MyMovies />}
                     />
                     <Route
+                        path='/watchlist'
+                        element={<Watchlist />}
+                    />
+                    <Route
                         path='/favourites-myreviews'
                         element={<Watchlist />}
                     />

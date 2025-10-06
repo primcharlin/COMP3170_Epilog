@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function EditMyMovie({ movie, onEdit, onSave }) {
+function EditMyMovie({ movie, onEdit }) {
     const {
         title= "Movie Title",
         image= "images/NoMovie.avif",
@@ -12,36 +12,14 @@ function EditMyMovie({ movie, onEdit, onSave }) {
     
     const posterUrl = image ? `/${image}` : "/images/NoMovie.avif";
 
-    const [isEditing, setIsEditing] = useState(false);
+    // State for editable form fields
     const [currentRating, setCurrentRating] = useState(rating);
     const [currentNotes, setCurrentNotes] = useState(notes);
     const [currentDateWatched, setCurrentDateWatched] = useState(dateWatched);
     const [currentStatus, setCurrentStatus] = useState(status);
 
     const handleSetRating = (value) => {
-        if (isEditing) {
-            setCurrentRating(value);
-        }
-    };
-
-    const handleEditClick = () => {
-        if (isEditing) {
-            // Save changes
-            if (onSave) {
-                const updatedMovie = {
-                    ...movie,
-                    rating: currentRating,
-                    notes: currentNotes,
-                    dateWatched: currentDateWatched,
-                    status: currentStatus
-                };
-                onSave(updatedMovie);
-            }
-            setIsEditing(false);
-        } else {
-            // Enter edit mode
-            setIsEditing(true);
-        }
+        setCurrentRating(value);
     };
 
     const stars = [1, 2, 3, 4, 5];
@@ -65,7 +43,6 @@ function EditMyMovie({ movie, onEdit, onSave }) {
                             aria-label={`${star} star${star > 1 ? "s" : ""}`}
                             onClick={() => handleSetRating(star)}
                             className={`rating-star ${star <= currentRating ? "active" : ""}`}
-                            disabled={!isEditing}
                         >
                             ★
                         </button>
@@ -77,9 +54,8 @@ function EditMyMovie({ movie, onEdit, onSave }) {
                 <label>Notes</label>
                 <textarea 
                     value={currentNotes} 
-                    onChange={(e) => isEditing && setCurrentNotes(e.target.value)}
+                    onChange={(e) => setCurrentNotes(e.target.value)}
                     rows="4" 
-                    readOnly={!isEditing}
                 />
             </div>
 
@@ -88,8 +64,7 @@ function EditMyMovie({ movie, onEdit, onSave }) {
                 <input 
                     type="date" 
                     value={currentDateWatched} 
-                    onChange={(e) => isEditing && setCurrentDateWatched(e.target.value)}
-                    readOnly={!isEditing}
+                    onChange={(e) => setCurrentDateWatched(e.target.value)}
                 />
             </div>
 
@@ -97,8 +72,7 @@ function EditMyMovie({ movie, onEdit, onSave }) {
                 <label>Status</label>
                 <select 
                     value={currentStatus} 
-                    onChange={(e) => isEditing && setCurrentStatus(e.target.value)}
-                    disabled={!isEditing}
+                    onChange={(e) => setCurrentStatus(e.target.value)}
                 >
                     <option value="ongoing">ongoing</option>
                     <option value="complete">complete</option>
@@ -106,9 +80,7 @@ function EditMyMovie({ movie, onEdit, onSave }) {
                 </select>
             </div>
 
-            <button type="button" className="save" onClick={handleEditClick}>
-                {isEditing ? "SAVE" : "EDIT"}
-            </button>
+            <button type="button" className="save" onClick={onEdit}>EDIT</button>
         </div>
     );
 }
