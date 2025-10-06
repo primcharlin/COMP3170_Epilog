@@ -484,7 +484,9 @@ h3 {
   .movie-title {
     font-weight: bold;
     margin: 5px 0;
-    font-size: 15px;
+    height: 40px; /* 固定高度 */
+    overflow: hidden; /* 超出文字隱藏 */
+    text-overflow: ellipsis; /* 超長顯示 ... */
   }
   
   .add-btn {

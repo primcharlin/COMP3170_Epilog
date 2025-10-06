@@ -23,7 +23,6 @@ const Home = () => {
                 starts here.
             </h3>
             <SearchBar />
-            
         <MovieCarousel 
             movies={movieData.slice(1)} 
             onAdd={handleAddToWatchlist} 

@@ -23,20 +23,23 @@ const Home = () => {
                 starts here.
             </h3>
             <SearchBar />
-            
-        <MovieCarousel 
-            movies={movieData.slice(1)} 
-            onAdd={handleAddToWatchlist} 
-        />
-        {watchlist.length > 0 && (
-            <ul>
-                {watchlist.map((movie, index) => (
-                    <li key={index}>{movie.title}</li>
-                ))}
-            </ul>
-        )}
-    </>
-);
+
+            {/* 將 MovieCarousel 的資料改為 JSON */}
+            <MovieCarousel movies={movieData} onAdd={handleAddToWatchlist} />
+
+            {/* Watchlist 顯示 */}
+            <h3>My Watchlist:</h3>
+            {watchlist.length === 0 ? (
+                <p>No movies added yet.</p>
+            ) : (
+                <ul>
+                    {watchlist.map((movie, index) => (
+                        <li key={index}>{movie.title}</li>
+                    ))}
+                </ul>
+            )}
+        </>
+    );
 };
 
 export default Home;

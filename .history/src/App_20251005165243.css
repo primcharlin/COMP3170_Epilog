@@ -463,6 +463,7 @@ h3 {
   .basic-movie-card {
     flex: 0 0 auto;
     width: 180px;
+    height: 420px;
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 10px;
@@ -470,8 +471,8 @@ h3 {
     background-color: #fff;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; 
-    height: 380px;
+    justify-content: space-between; /* 上下內容撐滿卡片 */
+    height: 350px; /* 固定卡片高度 */
   }
   
   .movie-img {
@@ -484,7 +485,6 @@ h3 {
   .movie-title {
     font-weight: bold;
     margin: 5px 0;
-    font-size: 15px;
   }
   
   .add-btn {
