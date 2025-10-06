@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SearchBar from "../components/SearchBar";
 import MovieCarousel from "../components/MovieCarousel";
-import movieData from "../data/epilog.json";
+import movieData from "../../data/epilog.json";
 
 const Home = () => {
     const [watchlist, setWatchlist] = useState([]);
@@ -23,7 +23,6 @@ const Home = () => {
                 starts here.
             </h3>
             <SearchBar />
-            
         <MovieCarousel 
             movies={movieData.slice(1)} 
             onAdd={handleAddToWatchlist} 

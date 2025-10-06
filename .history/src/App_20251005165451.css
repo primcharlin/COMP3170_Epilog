@@ -5,13 +5,6 @@
     min-height: 100vh;
 }
 
-@font-face {
-    font-family: 'VintageFont'; 
-    src: url('fonts/VintageFont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;  
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -44,19 +37,13 @@ body {
 
 /* Footer Styles */
 .footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
     margin-top: 4rem;
     background: #262323;
     color: white;
     padding: 1rem 2rem;
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    min-height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center
+    margin-top: auto;
 }
 
 /* Header Styles */
@@ -78,21 +65,10 @@ body {
 
 .header h1 {
     margin: 0;
-    font-family: vintageFont, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: 700;
     color: #8b1616;
-    text-shadow: 0 0 5px #FBFFDE, 0 0 10px #FBFFDE, 0 0 20px #FBFFDE, 0 0 30px #FBFFDE;
-    animation: glowPulse 2s infinite alternate;
-}
-
-@keyframes glowPulse {
-    0% {
-        text-shadow: 0 0 10px #FBFFDE, 0 0 20px #FBFFDE, 0 0 30px #FBFFDE, 0 0 40px #FBFFDE;
-    }
-    100% {
-        text-shadow: 0 0 20px #FDFFEF, 0 0 30px #FDFFEF, 0 0 40px #FDFFEF, 0 0 50px #FDFFEF;
-    }
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .header-right {
@@ -508,6 +484,7 @@ h3 {
   .movie-title {
     font-weight: bold;
     margin: 5px 0;
+    font-size: 15px;
   }
   
   .add-btn {

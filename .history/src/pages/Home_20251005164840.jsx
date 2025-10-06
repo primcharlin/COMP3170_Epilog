@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SearchBar from "../components/SearchBar";
 import MovieCarousel from "../components/MovieCarousel";
-import movieData from "../data/epilog.json";
+import movieData from "../../data/epilog.json";
 
 const Home = () => {
     const [watchlist, setWatchlist] = useState([]);
@@ -23,11 +23,12 @@ const Home = () => {
                 starts here.
             </h3>
             <SearchBar />
-            
+        {/* 過濾掉第一筆 "No Movie Found" */}
         <MovieCarousel 
             movies={movieData.slice(1)} 
             onAdd={handleAddToWatchlist} 
         />
+        {/* 只顯示 watchlist，如果沒東西就什麼都不顯示 */}
         {watchlist.length > 0 && (
             <ul>
                 {watchlist.map((movie, index) => (

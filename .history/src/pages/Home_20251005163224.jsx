@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import SearchBar from "../components/SearchBar";
 import MovieCarousel from "../components/MovieCarousel";
-import movieData from "../data/epilog.json";
+import movieData from "../../data/epilog.json" assert { type: "json" };
 
 const Home = () => {
     const [watchlist, setWatchlist] = useState([]);
 
+    // 點擊 Add 按鈕，把電影加入 watchlist
     const handleAddToWatchlist = (movie) => {
         if (!watchlist.some((m) => m.title === movie.title)) {
             setWatchlist((prev) => [...prev, movie]);
@@ -23,20 +24,23 @@ const Home = () => {
                 starts here.
             </h3>
             <SearchBar />
-            
-        <MovieCarousel 
-            movies={movieData.slice(1)} 
-            onAdd={handleAddToWatchlist} 
-        />
-        {watchlist.length > 0 && (
-            <ul>
-                {watchlist.map((movie, index) => (
-                    <li key={index}>{movie.title}</li>
-                ))}
-            </ul>
-        )}
-    </>
-);
+
+            {/* 將 MovieCarousel 的資料改為 JSON */}
+            <MovieCarousel movies={movieData} onAdd={handleAddToWatchlist} />
+
+            {/* Watchlist 顯示 */}
+            <h3>My Watchlist:</h3>
+            {watchlist.length === 0 ? (
+                <p>No movies added yet.</p>
+            ) : (
+                <ul>
+                    {watchlist.map((movie, index) => (
+                        <li key={index}>{movie.title}</li>
+                    ))}
+                </ul>
+            )}
+        </>
+    );
 };
 
 export default Home;
