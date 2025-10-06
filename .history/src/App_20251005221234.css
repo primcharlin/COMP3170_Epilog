@@ -45,11 +45,6 @@ body {
     padding-right: 24px;
 }
 
-.main-content {
-    flex: 1;
-    padding-top: 120px; /* account for fixed header */
-}
-
 /* Footer Styles */
 .footer {
     position: relative;

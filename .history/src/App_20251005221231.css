@@ -35,7 +35,8 @@ body {
 }
 
 .page {
-    min-height: 100vh;
+    min-height: calc(100vh - 120px);
+    /* account for fixed header padding */
     display: flex;
     flex-direction: column;
 }
@@ -43,11 +44,6 @@ body {
 .page-section {
     padding-left: 24px;
     padding-right: 24px;
-}
-
-.main-content {
-    flex: 1;
-    padding-top: 120px; /* account for fixed header */
 }
 
 /* Footer Styles */
