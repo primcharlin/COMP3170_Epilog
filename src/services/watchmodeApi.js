@@ -45,6 +45,36 @@ export const searchMovies = async (searchTerm) => {
 };
 
 /**
+ * Get genres list from WatchMode API
+ * @returns {Promise<Object>} Object mapping genre IDs to genre names
+ */
+export const getGenres = async () => {
+  try {
+    const url = `https://api.watchmode.com/v1/genres/?apiKey=${apiKey}`;
+    const response = await fetch(url);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const json = await response.json();
+    // Create a map of genre ID to genre name
+    const genresMap = {};
+    if (Array.isArray(json)) {
+      json.forEach(genre => {
+        if (genre.id && genre.name) {
+          genresMap[genre.id] = genre.name;
+        }
+      });
+    }
+    return genresMap;
+  } catch (error) {
+    console.error('Error fetching genres:', error);
+    throw error;
+  }
+};
+
+/**
  * Get multiple movie details by title IDs
  * @param {Array<string>} titleIds - Array of WatchMode title IDs
  * @returns {Promise<Array>} Array of movie details
@@ -66,15 +96,29 @@ export const getMultipleMovieDetails = async (titleIds) => {
 /**
  * Transform WatchMode API response to match app's movie format
  * @param {Object} apiData - WatchMode API response
+ * @param {Object} genresMap - Map of genre IDs to genre names
  * @returns {Object} Transformed movie object
  */
-export const transformMovieData = (apiData) => {
-  // Handle genre data - could be array of objects or array of strings
+export const transformMovieData = (apiData, genresMap = {}) => {
+  // Handle genre data - convert genre IDs to genre names
   let genres = [];
   if (apiData.genres && Array.isArray(apiData.genres)) {
-    genres = apiData.genres.map(genre => 
-      typeof genre === 'string' ? genre : (genre.name || genre)
-    );
+    genres = apiData.genres.map(genre => {
+      // If genre is a number (ID), look it up in the genres map
+      if (typeof genre === 'number') {
+        return genresMap[genre] || `Genre ${genre}`;
+      }
+      // If genre is an object with id, look it up
+      if (typeof genre === 'object' && genre.id) {
+        return genresMap[genre.id] || genre.name || `Genre ${genre.id}`;
+      }
+      // If genre is already a string, return it
+      if (typeof genre === 'string') {
+        return genre;
+      }
+      // Fallback
+      return genre.name || genre;
+    }).filter(Boolean); // Remove any undefined/null values
   }
 
   return {

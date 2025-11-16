@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { getMultipleMovieDetails, searchMovies, transformMovieData } from '../services/watchmodeApi';
+import { getMultipleMovieDetails, searchMovies, transformMovieData, getGenres } from '../services/watchmodeApi';
 
 const MoviesContext = createContext();
 
@@ -27,6 +27,11 @@ export const MoviesProvider = ({ children }) => {
       try {
         setLoading(true);
         setError(null);
+        
+        // First, fetch the genres map to convert genre IDs to names
+        console.log('Fetching genres...');
+        const genresMap = await getGenres().catch(() => ({}));
+        console.log(`Loaded ${Object.keys(genresMap).length} genres`);
         
         // Search for movies using API search terms
         const searchPromises = API_SEARCH_TERMS.map(term => 
@@ -66,7 +71,8 @@ export const MoviesProvider = ({ children }) => {
           movieDetails = await getMultipleMovieDetails(['345534']);
         }
         
-        const transformedMovies = movieDetails.map(transformMovieData);
+        // Transform movie data with genres map to convert IDs to names
+        const transformedMovies = movieDetails.map(movie => transformMovieData(movie, genresMap));
         
         // Add a "No Movie Found" placeholder at the beginning
         const moviesWithPlaceholder = [
