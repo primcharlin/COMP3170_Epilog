@@ -92,6 +92,7 @@ function AddMyMovie({ onSave }) {
                     <label htmlFor="date-watched">Date Watched</label>
                     <input 
                         type="date" 
+                        id="date-watched"
                         name="date-watched"
                         value={dateWatched}
                         onChange={(e) => setDateWatched(e.target.value)}

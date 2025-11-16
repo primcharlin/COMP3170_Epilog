@@ -63,44 +63,54 @@ const MovieDetails = ({ movieId }) => {
     return (
         <div className="movie-details-container">
             <div className="movie-details-content">
+                <img
+                    className="movie-details-background"
+                    src={movie.image.startsWith('http') ? movie.image : `/${movie.image}`}
+                    alt={movie.title}
+                />
+                <div className="movie-details-gradient"></div>
+                
                 {/* Left Column */}
                 <div className="movie-details-left">
-                    {/* Movie Title and Basic Info */}
-                    <div className="movie-title-section">
-                        <h1 className="movie-title">{movie.title}</h1>
-                        <div className="movie-meta">
-                            {movie.year && <span className="movie-year">{movie.year}</span>}
-                            {movie.runtime_minutes && <span className="movie-runtime">{movie.runtime_minutes} min</span>}
-                        </div>
-                    </div>
-
-                    {/* Movie Poster */}
-                    <div className="movie-poster-section">
-                        <img
-                            src={movie.image.startsWith('http') ? movie.image : `/${movie.image}`}
-                            alt={movie.title}
-                            className="movie-poster"
-                        />
-                    </div>
-
-                    {/* Genre Tags */}
-                    <div className="movie-genres">
-                        {movie.genres && movie.genres.length > 0 ? (
-                            movie.genres.map((genre, index) => (
-                                <span key={index} className="genre-tag">{genre}</span>
-                            ))
-                        ) : (
-                            <span className="genre-tag">N/A</span>
+                    <h1 className="movie-details-title">{movie.title}</h1>
+                    
+                    <div className="movie-details-meta">
+                        {movie.year && <span className="movie-year">{movie.year}</span>}
+                        {movie.runtime_minutes && <span className="movie-runtime">{movie.runtime_minutes} min</span>}
+                        {movie.genres && movie.genres.length > 0 && (
+                            <span className="movie-genres-text">{movie.genres.join(" • ")}</span>
                         )}
                     </div>
 
+                    {/* Rating */}
+                    <div className="movie-details-rating">
+                        <span className="rating-star">★</span>
+                        <span className="rating-value">{movie.imdb_rating || movie.tmdb_rating || 'N/A'}</span>
+                    </div>
+
                     {/* Synopsis */}
-                    <div className="movie-synopsis">
+                    <div className="movie-details-synopsis">
                         <p>{movie.description || "No description available."}</p>
                     </div>
 
+                    {/* Action Buttons */}
+                    <div className="movie-details-buttons">
+                        <button
+                            className="movie-details-watchlist-btn"
+                            onClick={addToWatchlist}
+                        >
+                            Add to Watchlist
+                        </button>
+                        <button
+                            className="movie-details-watched-btn"
+                            onClick={markAsWatched}
+                        >
+                            Mark as Watched
+                        </button>
+                    </div>
+
                     {/* Credits */}
-                    <div className="movie-credits">
+                    <div className="movie-details-credits">
                         <div className="credit-item">
                             <span className="credit-label">Director:</span>
                             <span className="credit-name">Ernest R. Dickerson</span>
@@ -116,53 +126,13 @@ const MovieDetails = ({ movieId }) => {
                     </div>
                 </div>
 
-                {/* Right Column */}
+                {/* Right Column - Poster */}
                 <div className="movie-details-right">
-                    {/* IMDb Rating */}
-                    <div className="rating-section">
-                        <div className="imdb-rating">
-                            <span className="rating-label">IMDb RATING</span>
-                            <div className="rating-score">
-                                <span className="star">★</span>
-                                <span className="score">{movie.imdb_rating || movie.tmdb_rating || 'N/A'}/10</span>
-                            </div>
-                        </div>
-                        <div className="user-rating">
-                            <span className="rating-label">YOUR RATING</span>
-                            <div className="rating-action">
-                                <span className="star-outline">☆</span>
-                                <span className="rate-text">Rate</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Action Buttons */}
-                    <div className="action-buttons">
-                        <button
-                            className="watchlist-btn"
-                            onClick={addToWatchlist}
-                        >
-                            <span className="btn-icon">+</span>
-                            <span className="btn-text">Add to Watchlist</span>
-                            <span className="btn-count">Added by 26.5K users</span>
-                        </button>
-                        <button
-                            className="watched-btn"
-                            onClick={markAsWatched}
-                        >
-                            <span className="btn-icon">👁</span>
-                            <span className="btn-text">Mark as watched</span>
-                        </button>
-                    </div>
-
-                    {/* Reviews */}
-                    <div className="reviews-section">
-                        <div className="review-links">
-                            <span className="review-link">83 User reviews</span>
-                            <span className="review-link">29 Critic reviews</span>
-                            <span className="metascore">30 Metascore</span>
-                        </div>
-                    </div>
+                    <img
+                        className="movie-details-poster"
+                        src={movie.image.startsWith('http') ? movie.image : `/${movie.image}`}
+                        alt={`${movie.title} poster`}
+                    />
                 </div>
             </div>
             {/* Edit Movie Modal */}

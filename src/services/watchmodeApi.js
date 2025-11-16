@@ -121,9 +121,18 @@ export const transformMovieData = (apiData, genresMap = {}) => {
     }).filter(Boolean); // Remove any undefined/null values
   }
 
+  // Get image URL - WatchMode API may provide low-resolution images
+  // Priority: poster > poster_url > backdrop > backdrop_url > fallback
+  let imageUrl = apiData.poster || apiData.poster_url || apiData.backdrop || apiData.backdrop_url || '/images/NoMovie.avif';
+  
+  // Ensure proper URL format
+  if (imageUrl && !imageUrl.startsWith('http') && !imageUrl.startsWith('/images/') && !imageUrl.startsWith('/')) {
+    imageUrl = `/${imageUrl}`;
+  }
+
   return {
     title: apiData.title || apiData.name || 'Unknown Title',
-    image: apiData.poster || apiData.poster_url || apiData.backdrop || apiData.backdrop_url || '/images/NoMovie.avif',
+    image: imageUrl,
     trailer: apiData.trailer || apiData.trailer_url || '',
     description: apiData.plot_overview || apiData.description || apiData.overview || '',
     year: apiData.year || apiData.release_date?.substring(0, 4) || '',
@@ -131,7 +140,8 @@ export const transformMovieData = (apiData, genresMap = {}) => {
     tmdb_rating: apiData.tmdb_rating || apiData.ratings?.tmdb || apiData.user_rating || '',
     genres: genres,
     runtime_minutes: apiData.runtime_minutes || apiData.runtime || '',
-    watchmode_id: apiData.id || apiData.tmdb_id || apiData.imdb_id || ''
+    watchmode_id: apiData.id || apiData.tmdb_id || apiData.imdb_id || '',
+    tmdb_id: apiData.tmdb_id || apiData.tmdbId // Store TMDB ID for potential future use
   };
 };
 

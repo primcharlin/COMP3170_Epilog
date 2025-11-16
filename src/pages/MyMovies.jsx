@@ -35,7 +35,7 @@ const MyMovies = () => {
         <div className='page-section'>
             <h2>My Movies</h2>
             <p>Your personal collection of watched movies.</p>
-            <button onClick={() => setIsAddModalOpen(true)}>Add</button>
+            <button className="add-movie-button" onClick={() => setIsAddModalOpen(true)}>Add Movie</button>
             <Modal
                 isOpen={isAddModalOpen}
                 onClose={() => setIsAddModalOpen(false)}
