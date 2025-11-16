@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useMovies } from '../context/MoviesContext';
 import Modal from './Modal';
 import EditMyMovie from './EditMyMovie';
+import Popup from './Popup';
 
 const MovieDetails = ({ movieId }) => {
     const { movies: epilogData } = useMovies();
@@ -10,6 +11,8 @@ const MovieDetails = ({ movieId }) => {
     const [watchedMovies, setWatchedMovies] = useState([]);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [selectedMovie, setSelectedMovie] = useState(null);
+    const [showPopup, setShowPopup] = useState(false);
+    const [popupMessage, setPopupMessage] = useState("");
 
     useEffect(() => {
         if (epilogData.length > 0) {
@@ -29,9 +32,11 @@ const MovieDetails = ({ movieId }) => {
             const newWatchlist = [...watchlist, movie];
             setWatchlist(newWatchlist);
             localStorage.setItem('watchlist', JSON.stringify(newWatchlist));
-            alert(`${movie.title} added to watchlist!`);
+            setPopupMessage(`"${movie.title}" has been added to Watchlist`);
+            setShowPopup(true);
         } else {
-            alert(`${movie.title} is already in your watchlist!`);
+            setPopupMessage(`"${movie.title}" is already in your watchlist!`);
+            setShowPopup(true);
         }
     };
 
@@ -168,6 +173,10 @@ const MovieDetails = ({ movieId }) => {
             >
                 {selectedMovie && <EditMyMovie movie={selectedMovie} />}
             </Modal>
+            {/* Popup for notifications */}
+            {showPopup && popupMessage && (
+                <Popup message={popupMessage} onClose={() => setShowPopup(false)} />
+            )}
         </div>
     );
 };

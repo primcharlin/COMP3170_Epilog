@@ -784,6 +784,12 @@ h3 {
     height: 220px;
     border-radius: 5px;
     object-fit: cover;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.movie-img:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
 }
 
 .movie-title {
@@ -1162,34 +1168,28 @@ h3 {
 /* Popup Styles */
 /* Popup */
 .popup-container {
-    display: flex;
-    justify-content: center;  /* 水平置中 */
-    margin-top: 20px;         /* 與 Carousel 保持距離 */
-    width: 100%;              /* 滿寬度讓水平置中生效 */
-    z-index: 1000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3000;
+    pointer-events: none;
   }
   
   .popup-box {
     background-color: white;
     color: black;
-    padding: 12px 24px;
+    padding: 16px 32px;
     border-radius: 8px;
     font-size: 1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    font-weight: 500;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     text-align: center;
     animation: fadeInOut 5s forwards;
+    min-width: 250px;
+    max-width: 400px;
   }
   
-  @keyframes fadeInOut {
-    0% { opacity: 0; transform: translateY(-10px); }
-    10% { opacity: 1; transform: translateY(0); }
-    90% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 0; transform: translateY(-10px); }
-  }
-  
-  
-  
-  /* Fade in and out animation */
   @keyframes fadeInOut {
     0% { opacity: 0; transform: translate(-50%, -55%); }
     10% { opacity: 1; transform: translate(-50%, -50%); }

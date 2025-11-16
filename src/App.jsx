@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Browse from "./pages/Browse";
 import MyMovies from "./pages/MyMovies";
 import Watchlist from "./pages/Watchlist";
+import Movie from "./pages/Moive";
 
 function App() {
     return (
@@ -35,6 +36,10 @@ function App() {
                             <Route
                                 path='/favourites-myreviews'
                                 element={<Watchlist />}
+                            />
+                            <Route
+                                path='/movie/:id'
+                                element={<Movie />}
                             />
                             
                         </Routes>
