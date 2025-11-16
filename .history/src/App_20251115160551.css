@@ -1030,14 +1030,12 @@ h3 {
     }
 }
 
-
 /* Popup Styles */
-/* Popup */
 .popup-container {
+    position: relative;
     display: flex;
-    justify-content: center;  /* 水平置中 */
-    margin-top: 20px;         /* 與 Carousel 保持距離 */
-    width: 100%;              /* 滿寬度讓水平置中生效 */
+    justify-content: center;
+    margin-top: 10px;
     z-index: 1000;
   }
   
@@ -1058,8 +1056,6 @@ h3 {
     90% { opacity: 1; transform: translateY(0); }
     100% { opacity: 0; transform: translateY(-10px); }
   }
-  
-  
   
   /* Fade in and out animation */
   @keyframes fadeInOut {

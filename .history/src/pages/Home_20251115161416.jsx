@@ -6,7 +6,7 @@ import movieData from "../data/epilog.json";
 
 const Home = () => {
   const [watchlist, setWatchlist] = useState(() => {
-    
+    // 初始化 watchlist 從 localStorage
     const saved = localStorage.getItem("watchlist");
     return saved ? JSON.parse(saved) : [];
   });
@@ -15,13 +15,13 @@ const Home = () => {
   const [popupMessage, setPopupMessage] = useState("");
 
   const handleAddToWatchlist = (movie) => {
-    
+    // 如果 movie 不在 watchlist，才加入
     if (!watchlist.some((m) => m.title === movie.title)) {
       const updatedList = [...watchlist, movie];
       setWatchlist(updatedList);
       localStorage.setItem("watchlist", JSON.stringify(updatedList));
 
-    
+      // 顯示 popup
       setPopupMessage(`"${movie.title}" has been added to Watchlist`);
       setShowPopup(true);
     }
@@ -44,6 +44,7 @@ const Home = () => {
         onAdd={handleAddToWatchlist}
       />
 
+      {/* Popup 出現在 Carousel 下方 */}
       {showPopup && (
         <Popup message={popupMessage} onClose={() => setShowPopup(false)} />
       )}

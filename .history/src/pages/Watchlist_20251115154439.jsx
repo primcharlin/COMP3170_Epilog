@@ -12,18 +12,18 @@ export default function Watchlist() {
   }, []);
 
   return (
-    <div className="container">
-      <h2 className="page-title">My Watchlist</h2>
+    <div className="watchlist-container">
+      <h2 className="watchlist-title">My Watchlist</h2>
 
       {books.length === 0 ? (
-        <p className="empty-text">No books in your watchlist yet.</p>
+        <p className="watchlist-empty">No books in your watchlist yet.</p>
       ) : (
-        <div className="books-grid">
+        <div className="watchlist-grid">
           {books.map((book) => (
-            <div key={book.isbn13} className="book-card">
-              <Link to={`/book/${book.isbn13}`} className="book-link">
-                <img src={book.image} alt={book.title} className="book-cover" />
-                <p className="book-title">{book.title}</p>
+            <div key={book.isbn13} className="watchlist-card">
+              <Link to={`/book/${book.isbn13}`}>
+                <img src={book.image} alt={book.title} />
+                <p className="watchlist-book-title">{book.title}</p>
               </Link>
             </div>
           ))}

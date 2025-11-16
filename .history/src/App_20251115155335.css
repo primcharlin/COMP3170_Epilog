@@ -1030,36 +1030,26 @@ h3 {
     }
 }
 
-
 /* Popup Styles */
-/* Popup */
+/* Popup Styles */
 .popup-container {
-    display: flex;
-    justify-content: center;  /* 水平置中 */
-    margin-top: 20px;         /* 與 Carousel 保持距離 */
-    width: 100%;              /* 滿寬度讓水平置中生效 */
-    z-index: 1000;
-  }
-  
-  .popup-box {
-    background-color: white;
-    color: black;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-size: 1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
     animation: fadeInOut 5s forwards;
   }
   
-  @keyframes fadeInOut {
-    0% { opacity: 0; transform: translateY(-10px); }
-    10% { opacity: 1; transform: translateY(0); }
-    90% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 0; transform: translateY(-10px); }
+  .popup-box {
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 16px 28px;
+    border-radius: 10px;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    text-align: center;
   }
-  
-  
   
   /* Fade in and out animation */
   @keyframes fadeInOut {

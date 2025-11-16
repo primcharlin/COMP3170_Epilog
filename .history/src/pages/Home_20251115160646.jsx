@@ -5,30 +5,25 @@ import Popup from "../components/Popup";
 import movieData from "../data/epilog.json";
 
 const Home = () => {
-  const [watchlist, setWatchlist] = useState(() => {
-    
-    const saved = localStorage.getItem("watchlist");
-    return saved ? JSON.parse(saved) : [];
-  });
-
   const [showPopup, setShowPopup] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
 
   const handleAddToWatchlist = (movie) => {
-    
-    if (!watchlist.some((m) => m.title === movie.title)) {
-      const updatedList = [...watchlist, movie];
-      setWatchlist(updatedList);
-      localStorage.setItem("watchlist", JSON.stringify(updatedList));
+    const existing = JSON.parse(localStorage.getItem("watchlist")) || [];
 
-    
-      setPopupMessage(`"${movie.title}" has been added to Watchlist`);
+    if (!existing.some((m) => m.title === movie.title)) {
+      const updated = [...existing, movie];
+      localStorage.setItem("watchlist", JSON.stringify(updated));
+      setPopupMessage(`${movie.title} added to Watchlist!`);
+      setShowPopup(true);
+    } else {
+      setPopupMessage(`${movie.title} is already in your Watchlist!`);
       setShowPopup(true);
     }
   };
 
   return (
-    <div className="home-page">
+    <>
       <h1>
         Your Personal Movie <span className="catalog-text">Catalog</span>
       </h1>
@@ -45,9 +40,12 @@ const Home = () => {
       />
 
       {showPopup && (
-        <Popup message={popupMessage} onClose={() => setShowPopup(false)} />
+        <Popup
+          message={popupMessage}
+          onClose={() => setShowPopup(false)}
+        />
       )}
-    </div>
+    </>
   );
 };
 
