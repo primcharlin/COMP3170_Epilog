@@ -3,9 +3,10 @@ import Modal from "../components/Modal";
 import AddMyMovie from "../components/AddMyMovie";
 import EditMyMovie from "../components/EditMyMovie";
 import DVDMovie from "../components/DVDMovie";
-import moviesData from "../data/epilog.json";
+import { useMovies } from "../context/MoviesContext";
 
 const MyMovies = () => {
+    const { movies: moviesData } = useMovies();
     const [isAddModalOpen, setIsAddModalOpen] = useState(false);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [selectedMovie, setSelectedMovie] = useState(null);
@@ -44,9 +45,11 @@ const MyMovies = () => {
             </Modal>
             <div className="my-movies-container">
                 {myMoviesData.map((myMovie) => {
-                    // Find the corresponding movie data from epilog.json for the image
+                    // Find the corresponding movie data from API for the image
                     const movieData = moviesData.find(m => m.title === myMovie.title);
-                    const posterUrl = movieData?.image ? `/${movieData.image}` : "/images/NoMovie.avif";
+                    const posterUrl = movieData?.image 
+                        ? (movieData.image.startsWith('http') ? movieData.image : `/${movieData.image}`)
+                        : "/images/NoMovie.avif";
                     
                     return (
                         <DVDMovie

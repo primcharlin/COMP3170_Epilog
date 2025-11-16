@@ -1,9 +1,12 @@
 import React from "react";
-import moviesData from "../data/epilog.json";
+import { useMovies } from "../context/MoviesContext";
 
 function DVDMovie({ title, onClick, onRemove }) {
+    const { movies: moviesData } = useMovies();
     const movie = moviesData.find((m) => m.title === title);
-    const bgUrl = movie && movie.image ? `/${movie.image}` : "/images/NoMovie.avif";
+    const bgUrl = movie && movie.image 
+        ? (movie.image.startsWith('http') ? movie.image : `/${movie.image}`)
+        : "/images/NoMovie.avif";
     const titleLength = (title || "").length;
     const titleSizeClass = titleLength > 18 ? "xlong" : titleLength > 12 ? "long" : "";
 

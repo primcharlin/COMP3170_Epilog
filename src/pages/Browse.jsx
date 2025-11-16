@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import BasicMovieCard from "../components/BasicMovieCard";
-import movieData from "../data/epilog.json";
+import { useMovies } from "../context/MoviesContext";
 
 const Browse = () => {
+  const { movies: movieData, loading } = useMovies();
   const [watchlist, setWatchlist] = useState([]);
 
   const handleAddToWatchlist = (movie) => {
@@ -11,6 +12,13 @@ const Browse = () => {
     }
   };
 
+  if (loading) {
+    return (
+      <div className='page-section'>
+        <div>Loading movies...</div>
+      </div>
+    );
+  }
 
   const moviesToShow = movieData.slice(1);
 
@@ -22,7 +30,7 @@ const Browse = () => {
           <BasicMovieCard
             key={index}
             title={movie.title}
-            image={movie.image}
+            image={movie.image.startsWith('http') ? movie.image : `/${movie.image}`}
             trailer={movie.trailer}
             addToWatchlist={() => handleAddToWatchlist(movie)}
           />

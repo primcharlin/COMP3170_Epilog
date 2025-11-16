@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import epilogData from '../../data/epilog.json';
+import { useMovies } from '../context/MoviesContext';
 import Modal from './Modal';
 import EditMyMovie from './EditMyMovie';
 
 const MovieDetails = ({ movieId }) => {
+    const { movies: epilogData } = useMovies();
     const [movie, setMovie] = useState(null);
     const [watchlist, setWatchlist] = useState([]);
     const [watchedMovies, setWatchedMovies] = useState([]);
@@ -11,15 +12,17 @@ const MovieDetails = ({ movieId }) => {
     const [selectedMovie, setSelectedMovie] = useState(null);
 
     useEffect(() => {
-        // Find the movie by ID or index
-        const foundMovie = epilogData[movieId] || epilogData[0];
-        setMovie(foundMovie);
+        if (epilogData.length > 0) {
+            // Find the movie by ID or index
+            const foundMovie = epilogData[movieId] || epilogData[0];
+            setMovie(foundMovie);
+        }
         // Load watchlist and watched movies from localStorage
         const savedWatchlist = JSON.parse(localStorage.getItem('watchlist') || '[]');
         const savedWatched = JSON.parse(localStorage.getItem('watchedMovies') || '[]');
         setWatchlist(savedWatchlist);
         setWatchedMovies(savedWatched);
-    }, [movieId]);
+    }, [movieId, epilogData]);
 
     const addToWatchlist = () => {
         if (movie && !watchlist.find(item => item.title === movie.title)) {
@@ -37,7 +40,7 @@ const MovieDetails = ({ movieId }) => {
             // Set up the movie data for the edit form
             setSelectedMovie({
                 title: movie.title,
-                posterUrl: `/${movie.image}`,
+                posterUrl: movie.image.startsWith('http') ? movie.image : `/${movie.image}`,
                 rating: "4",
                 notes: "",
                 dateWatched: new Date().toISOString().split('T')[0],
@@ -61,16 +64,15 @@ const MovieDetails = ({ movieId }) => {
                     <div className="movie-title-section">
                         <h1 className="movie-title">{movie.title}</h1>
                         <div className="movie-meta">
-                            <span className="movie-year">1996</span>
-                            <span className="movie-rating">R</span>
-                            <span className="movie-runtime">1h 24m</span>
+                            {movie.year && <span className="movie-year">{movie.year}</span>}
+                            {movie.runtime_minutes && <span className="movie-runtime">{movie.runtime_minutes} min</span>}
                         </div>
                     </div>
 
                     {/* Movie Poster */}
                     <div className="movie-poster-section">
                         <img
-                            src={movie.image}
+                            src={movie.image.startsWith('http') ? movie.image : `/${movie.image}`}
                             alt={movie.title}
                             className="movie-poster"
                         />
@@ -78,10 +80,13 @@ const MovieDetails = ({ movieId }) => {
 
                     {/* Genre Tags */}
                     <div className="movie-genres">
-                        <span className="genre-tag">Action</span>
-                        <span className="genre-tag">Comedy</span>
-                        <span className="genre-tag">Crime</span>
-                        <span className="genre-tag">Buddy Cop</span>
+                        {movie.genres && movie.genres.length > 0 ? (
+                            movie.genres.map((genre, index) => (
+                                <span key={index} className="genre-tag">{genre}</span>
+                            ))
+                        ) : (
+                            <span className="genre-tag">N/A</span>
+                        )}
                     </div>
 
                     {/* Synopsis */}
@@ -114,8 +119,7 @@ const MovieDetails = ({ movieId }) => {
                             <span className="rating-label">IMDb RATING</span>
                             <div className="rating-score">
                                 <span className="star">★</span>
-                                <span className="score">5.8/10</span>
-                                <span className="votes">42K</span>
+                                <span className="score">{movie.imdb_rating || movie.tmdb_rating || 'N/A'}/10</span>
                             </div>
                         </div>
                         <div className="user-rating">

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import SearchBar from "./SearchBar";
-import moviesData from "../data/epilog.json";
+import { useMovies } from "../context/MoviesContext";
 
 function AddMyMovie({ onSave }) {
+    const { movies: moviesData } = useMovies();
     const [rating, setRating] = useState(0);
     const [notes, setNotes] = useState("");
     const [dateWatched, setDateWatched] = useState("");
@@ -19,14 +20,14 @@ function AddMyMovie({ onSave }) {
         if (match) {
             setSelectedMovie({
                 title: match.title,
-                posterUrl: `/${match.image}`,
+                posterUrl: match.image.startsWith('http') ? match.image : `/${match.image}`,
             });
             return;
         }
         if (moviesData.length > 0) {
             setSelectedMovie({
                 title: moviesData[0].title,
-                posterUrl: `/${moviesData[0].image}`,
+                posterUrl: moviesData[0].image.startsWith('http') ? moviesData[0].image : `/${moviesData[0].image}`,
             });
         }
     };
@@ -40,7 +41,8 @@ function AddMyMovie({ onSave }) {
                 notes: notes,
                 dateWatched: dateWatched,
                 status: status,
-                image: moviesData.find(m => m.title === selectedMovie.title)?.image || "images/NoMovie.avif"
+                image: moviesData.find(m => m.title === selectedMovie.title)?.image || "images/NoMovie.avif",
+                watchmode_id: moviesData.find(m => m.title === selectedMovie.title)?.watchmode_id || ""
             };
             onSave(newMovie);
         }
