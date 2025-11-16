@@ -344,14 +344,6 @@ h3 {
     margin: 0;
 }
 
-.random-movie-description p {
-    color: white;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin: 0;
-    text-align: left;
-}
-
 .random-movie-button {
     background: #d3d3d3;
     color: #000000;

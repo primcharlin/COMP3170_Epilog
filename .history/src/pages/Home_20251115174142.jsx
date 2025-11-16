@@ -55,10 +55,11 @@ const Home = () => {
       <div className="random-movie-section">
         <div className="random-movie-content">
           <div className="random-movie-left">
-            <h2>Discover a New Movie</h2>
+            <h2>Homepage Header</h2>
             <div className="random-movie-description">
-              <p>Not sure what to watch? Feeling adventurous? Just click on the random button and let the universe decide for you. Each tap serves you a totally unexpected movie from our huge selection ofhidden gems, comfort films, wildcards, the works. It’s like shaking a mystery box of movies and seeing what pops out.</p>
-              <p>Whether you’re indecisive, bored of scrolling, or just love surprises, this feature is your shortcut to discovering something new without the endless “what should we watch?” debate. One click, one surprise, infinite movie nights..</p>
+              <p className="description-label">Site Description-</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>
             <button 
               className="random-movie-button" 

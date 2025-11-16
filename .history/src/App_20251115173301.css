@@ -306,130 +306,105 @@ h3 {
 
 .random-movie-section {
     margin: 3rem auto;
-    max-width: 1400px;
+    max-width: 1200px;
     padding: 0 2rem;
 }
 
-.random-movie-content {
-    display: flex;
-    gap: 3rem;
-    align-items: flex-start;
+.random-movie-header {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
-.random-movie-left {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.random-movie-left h2 {
+.random-movie-header h2 {
     color: white;
     font-size: 2.5rem;
     font-weight: 700;
-    margin: 0;
+    margin-bottom: 0.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.random-movie-description {
+.random-movie-header p {
+    color: #aaaaaa;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+.random-movie-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.random-movie-poster {
+    flex: 1;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
 }
 
-.description-label {
-    color: white;
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin: 0;
+.random-movie-poster img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
 }
 
-.random-movie-description p {
+.random-movie-poster img:hover {
+    transform: scale(1.05);
+}
+
+.random-movie-title {
     color: white;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin: 0;
-    text-align: left;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .random-movie-button {
-    background: #d3d3d3;
-    color: #000000;
+    background: linear-gradient(135deg, #e96e6e, #d55a5a);
+    color: white;
     border: none;
-    border-radius: 8px;
-    padding: 0.75rem 2rem;
-    font-size: 1rem;
+    border-radius: 25px;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    align-self: flex-start;
-    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(233, 110, 110, 0.3);
 }
 
 .random-movie-button:hover {
-    background: #c0c0c0;
+    background: linear-gradient(135deg, #d55a5a, #c44545);
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(233, 110, 110, 0.4);
 }
 
 .random-movie-button:active {
     transform: translateY(0);
-}
-
-.random-movie-info {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.movie-info-item {
-    display: flex;
-    gap: 0.5rem;
-    align-items: baseline;
-}
-
-.info-label {
-    color: white;
-    font-size: 1rem;
-    font-weight: 600;
-    min-width: 60px;
-}
-
-.info-value {
-    color: white;
-    font-size: 1rem;
-    font-weight: 400;
-}
-
-.random-movie-right {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.random-movie-poster-img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 8px;
-    background: #d3d3d3;
-    object-fit: cover;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 10px rgba(233, 110, 110, 0.3);
 }
 
 @media (max-width: 768px) {
-    .random-movie-content {
+    .random-movie-container {
         flex-direction: column;
         gap: 2rem;
     }
     
-    .random-movie-left h2 {
-        font-size: 2rem;
+    .random-movie-poster {
+        max-width: 100%;
     }
     
-    .random-movie-poster-img {
-        max-width: 100%;
+    .random-movie-header h2 {
+        font-size: 2rem;
     }
 }
 

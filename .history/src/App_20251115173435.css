@@ -375,32 +375,6 @@ h3 {
     transform: translateY(0);
 }
 
-.random-movie-info {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.movie-info-item {
-    display: flex;
-    gap: 0.5rem;
-    align-items: baseline;
-}
-
-.info-label {
-    color: white;
-    font-size: 1rem;
-    font-weight: 600;
-    min-width: 60px;
-}
-
-.info-value {
-    color: white;
-    font-size: 1rem;
-    font-weight: 400;
-}
-
 .random-movie-right {
     flex: 1;
     display: flex;

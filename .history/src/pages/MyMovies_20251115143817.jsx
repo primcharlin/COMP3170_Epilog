@@ -10,6 +10,7 @@ const MyMovies = () => {
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [selectedMovie, setSelectedMovie] = useState(null);
 
+    // Array of movies with their individual data
     const [myMoviesData, setMyMoviesData] = useState([]);
 
     const handleAddMovie = (newMovie) => {

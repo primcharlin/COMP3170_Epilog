@@ -4,6 +4,7 @@ import MovieCarousel from "../components/MovieCarousel";
 import Popup from "../components/Popup";
 import movieData from "../data/epilog.json";
 
+// Get a random movie from the data
 const getRandomMovie = () => {
   const availableMovies = movieData.filter(m => m.title !== "No Movie Found");
   const randomIndex = Math.floor(Math.random() * availableMovies.length);
@@ -20,13 +21,31 @@ const Home = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
   const [randomMovie, setRandomMovie] = useState(null);
+  const [isManual, setIsManual] = useState(false);
 
+  // Set initial random movie
   useEffect(() => {
     setRandomMovie(getRandomMovie());
   }, []);
 
+  // Auto-rotate random movie every 5 seconds if not manually triggered
+  useEffect(() => {
+    if (!isManual) {
+      const interval = setInterval(() => {
+        setRandomMovie(getRandomMovie());
+      }, 5000);
+
+      return () => clearInterval(interval);
+    }
+  }, [isManual]);
+
   const handleRandomMovie = () => {
+    setIsManual(true);
     setRandomMovie(getRandomMovie());
+    // Reset manual flag after 5 seconds to resume auto-rotation
+    setTimeout(() => {
+      setIsManual(false);
+    }, 5000);
   };
 
   const handleAddToWatchlist = (movie) => {
@@ -53,45 +72,28 @@ const Home = () => {
       </h3>
       <SearchBar />
       <div className="random-movie-section">
-        <div className="random-movie-content">
-          <div className="random-movie-left">
-            <h2>Discover a New Movie</h2>
-            <div className="random-movie-description">
-              <p>Not sure what to watch? Feeling adventurous? Just click on the random button and let the universe decide for you. Each tap serves you a totally unexpected movie from our huge selection ofhidden gems, comfort films, wildcards, the works. It’s like shaking a mystery box of movies and seeing what pops out.</p>
-              <p>Whether you’re indecisive, bored of scrolling, or just love surprises, this feature is your shortcut to discovering something new without the endless “what should we watch?” debate. One click, one surprise, infinite movie nights..</p>
-            </div>
-            <button 
-              className="random-movie-button" 
-              onClick={handleRandomMovie}
-            >
-              Random Movie
-            </button>
+        <div className="random-movie-header">
+          <h2>Discover a Random Movie</h2>
+          <p>Explore our collection and discover your next favorite film!</p>
+        </div>
+        <div className="random-movie-container">
+          <div className="random-movie-poster">
             {randomMovie && (
-              <div className="random-movie-info">
-                <div className="movie-info-item">
-                  <span className="info-label">Title:</span>
-                  <span className="info-value">{randomMovie.title}</span>
-                </div>
-                <div className="movie-info-item">
-                  <span className="info-label">Genre:</span>
-                  <span className="info-value">Comedy</span>
-                </div>
-                <div className="movie-info-item">
-                  <span className="info-label">Rating:</span>
-                  <span className="info-value">4.5/5</span>
-                </div>
-              </div>
+              <>
+                <img 
+                  src={`/${randomMovie.image}`} 
+                  alt={`${randomMovie.title} poster`}
+                />
+                <div className="random-movie-title">{randomMovie.title}</div>
+              </>
             )}
           </div>
-          <div className="random-movie-right">
-            {randomMovie && (
-              <img 
-                src={`/${randomMovie.image}`} 
-                alt={`${randomMovie.title} poster`}
-                className="random-movie-poster-img"
-              />
-            )}
-          </div>
+          <button 
+            className="random-movie-button" 
+            onClick={handleRandomMovie}
+          >
+            Random Movie
+          </button>
         </div>
       </div>
 
