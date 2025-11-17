@@ -1456,7 +1456,7 @@ button[type="submit"].save:active {
 
 .movie-details-title {
     color: white;
-    font-size: 5rem;
+    font-size: 50px;
     font-weight: 700;
     margin: 0;
     line-height: 1.1;
