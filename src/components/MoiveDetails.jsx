@@ -4,6 +4,15 @@ import Modal from './Modal';
 import EditMyMovie from './EditMyMovie';
 import Popup from './Popup';
 
+const LOCAL_STORAGE_KEY = 'watchedMovies';
+const resolveImagePath = (imagePath) => {
+    if (!imagePath) return "/images/NoMovie.avif";
+    if (imagePath.startsWith('http') || imagePath.startsWith('/')) {
+        return imagePath;
+    }
+    return `/${imagePath}`;
+};
+
 const MovieDetails = ({ movieId }) => {
     const { movies: epilogData } = useMovies();
     const [movie, setMovie] = useState(null);
@@ -22,10 +31,18 @@ const MovieDetails = ({ movieId }) => {
         }
         // Load watchlist and watched movies from localStorage
         const savedWatchlist = JSON.parse(localStorage.getItem('watchlist') || '[]');
-        const savedWatched = JSON.parse(localStorage.getItem('watchedMovies') || '[]');
+        const savedWatched = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '[]');
         setWatchlist(savedWatchlist);
         setWatchedMovies(savedWatched);
     }, [movieId, epilogData]);
+
+    const persistWatchedMovies = (updater) => {
+        setWatchedMovies((prev) => {
+            const updatedList = typeof updater === 'function' ? updater(prev) : updater;
+            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updatedList));
+            return updatedList;
+        });
+    };
 
     const addToWatchlist = () => {
         if (movie && !watchlist.find(item => item.title === movie.title)) {
@@ -41,19 +58,63 @@ const MovieDetails = ({ movieId }) => {
     };
 
     const markAsWatched = () => {
-        if (movie) {
-            // Set up the movie data for the edit form
-            setSelectedMovie({
-                title: movie.title,
-                posterUrl: movie.image.startsWith('http') ? movie.image : `/${movie.image}`,
-                rating: "4",
-                notes: "",
-                dateWatched: new Date().toISOString().split('T')[0],
-                status: "completed"
-            });
-            // Open the edit modal
-            setIsEditModalOpen(true);
+        if (!movie) return;
+
+        const baseWatchedMovie = {
+            title: movie.title,
+            image: movie.image,
+            rating: 0,
+            notes: "",
+            dateWatched: new Date().toISOString().split('T')[0],
+            status: "completed",
+            watchmode_id: movie.watchmode_id || movie.id || movie.tmdb_id || movie.imdb_id || ""
+        };
+
+        const existingIndex = watchedMovies.findIndex(
+            (item) =>
+                (item.watchmode_id && baseWatchedMovie.watchmode_id && item.watchmode_id === baseWatchedMovie.watchmode_id) ||
+                item.title === baseWatchedMovie.title
+        );
+
+        let updatedWatchedMovies = [];
+        if (existingIndex !== -1) {
+            updatedWatchedMovies = watchedMovies.map((item, index) =>
+                index === existingIndex ? { ...item, ...baseWatchedMovie } : item
+            );
+            setPopupMessage(`"${movie.title}" is already in Watched. You can update its details.`);
+        } else {
+            updatedWatchedMovies = [...watchedMovies, baseWatchedMovie];
+            setPopupMessage(`"${movie.title}" has been added to Watched`);
         }
+
+        persistWatchedMovies(updatedWatchedMovies);
+
+        setSelectedMovie({
+            ...baseWatchedMovie,
+            image: movie.image
+        });
+        setIsEditModalOpen(true);
+        setShowPopup(true);
+    };
+
+    const handleWatchedSave = (updatedMovie) => {
+        persistWatchedMovies((current) =>
+            current.map((item) => {
+                const matchesById =
+                    item.watchmode_id &&
+                    updatedMovie.watchmode_id &&
+                    item.watchmode_id === updatedMovie.watchmode_id;
+                const matchesByTitle = item.title === updatedMovie.title;
+                if (matchesById || matchesByTitle) {
+                    return { ...item, ...updatedMovie };
+                }
+                return item;
+            })
+        );
+        setSelectedMovie(updatedMovie);
+        setIsEditModalOpen(false);
+        setPopupMessage(`"${updatedMovie.title}" has been updated`);
+        setShowPopup(true);
     };
 
     if (!movie) {
@@ -65,7 +126,7 @@ const MovieDetails = ({ movieId }) => {
             <div className="movie-details-content">
                 <img
                     className="movie-details-background"
-                    src={movie.image.startsWith('http') ? movie.image : `/${movie.image}`}
+                    src={resolveImagePath(movie.image)}
                     alt={movie.title}
                 />
                 <div className="movie-details-gradient"></div>
@@ -130,7 +191,7 @@ const MovieDetails = ({ movieId }) => {
                 <div className="movie-details-right">
                     <img
                         className="movie-details-poster"
-                        src={movie.image.startsWith('http') ? movie.image : `/${movie.image}`}
+                        src={resolveImagePath(movie.image)}
                         alt={`${movie.title} poster`}
                     />
                 </div>
@@ -141,7 +202,7 @@ const MovieDetails = ({ movieId }) => {
                 onClose={() => setIsEditModalOpen(false)}
                 title="Edit My Movie"
             >
-                {selectedMovie && <EditMyMovie movie={selectedMovie} />}
+                {selectedMovie && <EditMyMovie movie={selectedMovie} onSave={handleWatchedSave} />}
             </Modal>
             {/* Popup for notifications */}
             {showPopup && popupMessage && (

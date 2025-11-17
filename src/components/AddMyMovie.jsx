@@ -2,6 +2,17 @@ import React, { useState } from "react";
 import SearchBar from "./SearchBar";
 import { useMovies } from "../context/MoviesContext";
 
+const resolvePosterUrl = (imagePath) => {
+    const normalized = typeof imagePath === "string" ? imagePath : "";
+    if (!normalized) {
+        return "/images/NoMovie.avif";
+    }
+    if (normalized.startsWith('http') || normalized.startsWith('/')) {
+        return normalized;
+    }
+    return `/${normalized}`;
+};
+
 function AddMyMovie({ onSave }) {
     const { movies: moviesData } = useMovies();
     const [rating, setRating] = useState(0);
@@ -20,14 +31,14 @@ function AddMyMovie({ onSave }) {
         if (match) {
             setSelectedMovie({
                 title: match.title,
-                posterUrl: match.image.startsWith('http') ? match.image : `/${match.image}`,
+                posterUrl: resolvePosterUrl(match.image),
             });
             return;
         }
         if (moviesData.length > 0) {
             setSelectedMovie({
                 title: moviesData[0].title,
-                posterUrl: moviesData[0].image.startsWith('http') ? moviesData[0].image : `/${moviesData[0].image}`,
+                posterUrl: resolvePosterUrl(moviesData[0].image),
             });
         }
     };

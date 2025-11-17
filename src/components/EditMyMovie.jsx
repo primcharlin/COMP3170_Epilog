@@ -10,7 +10,12 @@ function EditMyMovie({ movie, onEdit, onSave }) {
         status= "ongoing",
     } = movie || {};
     
-    const posterUrl = image ? `/${image}` : "/images/NoMovie.avif";
+    const normalizedImage = typeof image === "string" ? image : "";
+    const posterUrl = normalizedImage
+        ? (normalizedImage.startsWith('http') || normalizedImage.startsWith('/') 
+            ? normalizedImage 
+            : `/${normalizedImage}`)
+        : "/images/NoMovie.avif";
 
     const [isEditing, setIsEditing] = useState(false);
     const [currentRating, setCurrentRating] = useState(rating);
