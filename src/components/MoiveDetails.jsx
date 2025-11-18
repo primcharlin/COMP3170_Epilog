@@ -5,6 +5,19 @@ import EditMyMovie from './EditMyMovie';
 import Popup from './Popup';
 
 const LOCAL_STORAGE_KEY = 'watchedMovies';
+const safelyParseStoredMovies = () => {
+    try {
+        const raw = localStorage.getItem(LOCAL_STORAGE_KEY);
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed : [];
+    } catch (error) {
+        console.warn('Failed to parse watched movies from storage, resetting list.', error);
+        localStorage.removeItem(LOCAL_STORAGE_KEY);
+        return [];
+    }
+};
+
 const resolveImagePath = (imagePath) => {
     if (!imagePath) return "/images/NoMovie.avif";
     if (imagePath.startsWith('http') || imagePath.startsWith('/')) {
@@ -31,7 +44,7 @@ const MovieDetails = ({ movieId }) => {
         }
         // Load watchlist and watched movies from localStorage
         const savedWatchlist = JSON.parse(localStorage.getItem('watchlist') || '[]');
-        const savedWatched = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '[]');
+        const savedWatched = safelyParseStoredMovies();
         setWatchlist(savedWatchlist);
         setWatchedMovies(savedWatched);
     }, [movieId, epilogData]);

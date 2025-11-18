@@ -6,6 +6,18 @@ import DVDMovie from "../components/DVDMovie";
 import { useMovies } from "../context/MoviesContext";
 
 const LOCAL_STORAGE_KEY = 'watchedMovies';
+const safelyParseMovies = () => {
+    try {
+        const raw = localStorage.getItem(LOCAL_STORAGE_KEY);
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed : [];
+    } catch (error) {
+        console.warn('Failed to parse saved movies, clearing storage.', error);
+        localStorage.removeItem(LOCAL_STORAGE_KEY);
+        return [];
+    }
+};
 
 const MyMovies = () => {
     const { movies: moviesData } = useMovies();
@@ -16,7 +28,7 @@ const MyMovies = () => {
     const [myMoviesData, setMyMoviesData] = useState([]);
 
     useEffect(() => {
-        const savedMovies = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '[]');
+        const savedMovies = safelyParseMovies();
         setMyMoviesData(savedMovies);
     }, []);
 
