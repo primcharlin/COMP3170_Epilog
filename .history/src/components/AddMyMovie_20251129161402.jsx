@@ -1,8 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SearchBar from "./SearchBar";
-import moviesData from "../data/epilog.json";
+import { useMovies } from "../context/MoviesContext";
+
+const resolvePosterUrl = (imagePath) => {
+    const normalized = typeof imagePath === "string" ? imagePath : "";
+    if (!normalized) {
+        return "/images/NoMovie.avif";
+    }
+    if (normalized.startsWith('http') || normalized.startsWith('/')) {
+        return normalized;
+    }
+    return `/${normalized}`;
+};
 
 function AddMyMovie({ onSave }) {
+    const { movies: moviesData } = useMovies();
     const [rating, setRating] = useState(0);
     const [notes, setNotes] = useState("");
     const [dateWatched, setDateWatched] = useState("");
@@ -19,14 +31,14 @@ function AddMyMovie({ onSave }) {
         if (match) {
             setSelectedMovie({
                 title: match.title,
-                posterUrl: `/${match.image}`,
+                posterUrl: resolvePosterUrl(match.image),
             });
             return;
         }
         if (moviesData.length > 0) {
             setSelectedMovie({
                 title: moviesData[0].title,
-                posterUrl: `/${moviesData[0].image}`,
+                posterUrl: resolvePosterUrl(moviesData[0].image),
             });
         }
     };
@@ -40,11 +52,69 @@ function AddMyMovie({ onSave }) {
                 notes: notes,
                 dateWatched: dateWatched,
                 status: status,
-                image: moviesData.find(m => m.title === selectedMovie.title)?.image || "images/NoMovie.avif"
+                image: moviesData.find(m => m.title === selectedMovie.title)?.image || "images/NoMovie.avif",
+                watchmode_id: moviesData.find(m => m.title === selectedMovie.title)?.watchmode_id || ""
             };
             onSave(newMovie);
         }
     };
+
+    const handleKeyDown = (e) => {
+        // Submit form on Enter (except in textarea where we use Ctrl+Enter or Shift+Enter)
+        // Also exclude search input - it handles its own Enter key
+        if (e.key === 'Enter') {
+            const isSearchInput = e.target.closest('.search-input-wrapper') || 
+                                  e.target.classList.contains('search-input');
+            
+            if (isSearchInput) {
+                // Let SearchBar handle its own Enter key
+                return;
+            }
+            
+            if (e.target.tagName === 'TEXTAREA') {
+                // For textarea, submit on Ctrl+Enter or Shift+Enter
+                if (e.ctrlKey || e.shiftKey) {
+                    e.preventDefault();
+                    handleSave(e);
+                }
+            } else {
+                // For other inputs, submit on Enter
+                e.preventDefault();
+                handleSave(e);
+            }
+        }
+    };
+
+    // Listen for Enter key on document level when form is active
+    useEffect(() => {
+        const handleDocumentKeyDown = (e) => {
+            if (e.key === 'Enter' && selectedMovie) {
+                const activeElement = document.activeElement;
+                const isFormElement = activeElement.tagName === 'INPUT' || 
+                                     activeElement.tagName === 'TEXTAREA' || 
+                                     activeElement.tagName === 'SELECT' ||
+                                     activeElement.tagName === 'BUTTON';
+                
+                // If no form element is focused, submit the form
+                if (!isFormElement || activeElement.classList.contains('search-input')) {
+                    // Check if search input is focused
+                    if (activeElement.classList.contains('search-input')) {
+                        return; // Let SearchBar handle it
+                    }
+                    // If nothing is focused or focus is outside form elements, submit
+                    if (!isFormElement) {
+                        e.preventDefault();
+                        handleSave(e);
+                    }
+                }
+            }
+        };
+
+        document.addEventListener('keydown', handleDocumentKeyDown);
+        return () => {
+            document.removeEventListener('keydown', handleDocumentKeyDown);
+        };
+    }, [selectedMovie, rating, notes, dateWatched, status]);
 
     return (
         <div className="form-container">
@@ -54,7 +124,7 @@ function AddMyMovie({ onSave }) {
                     <div className="selected-movie-title">{selectedMovie.title}</div>
                 </div>
             )}
-            <form onSubmit={handleSave}>
+            <form onSubmit={handleSave} onKeyDown={handleKeyDown}>
                 <div className="form-control form-control--stack">
                     <label htmlFor="SearchMovie">Search Movie...</label>
                     <SearchBar onSearch={handleSearchSubmit} placeholder="Search for a movie title..." />
@@ -90,6 +160,7 @@ function AddMyMovie({ onSave }) {
                     <label htmlFor="date-watched">Date Watched</label>
                     <input 
                         type="date" 
+                        id="date-watched"
                         name="date-watched"
                         value={dateWatched}
                         onChange={(e) => setDateWatched(e.target.value)}

@@ -1,8 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SearchBar from "./SearchBar";
-import moviesData from "../data/epilog.json";
+import { useMovies } from "../context/MoviesContext";
+
+const resolvePosterUrl = (imagePath) => {
+    const normalized = typeof imagePath === "string" ? imagePath : "";
+    if (!normalized) {
+        return "/images/NoMovie.avif";
+    }
+    if (normalized.startsWith('http') || normalized.startsWith('/')) {
+        return normalized;
+    }
+    return `/${normalized}`;
+};
 
 function AddMyMovie({ onSave }) {
+    const { movies: moviesData } = useMovies();
     const [rating, setRating] = useState(0);
     const [notes, setNotes] = useState("");
     const [dateWatched, setDateWatched] = useState("");
@@ -19,15 +31,57 @@ function AddMyMovie({ onSave }) {
         if (match) {
             setSelectedMovie({
                 title: match.title,
-                posterUrl: `/${match.image}`,
+                posterUrl: resolvePosterUrl(match.image),
             });
             return;
         }
         if (moviesData.length > 0) {
             setSelectedMovie({
                 title: moviesData[0].title,
-                posterUrl: `/${moviesData[0].image}`,
+                posterUrl: resolvePosterUrl(moviesData[0].image),
             });
+        }
+    };
+
+    const handleSave = (e) => {
+        e.preventDefault();
+        if (selectedMovie && onSave) {
+            const newMovie = {
+                title: selectedMovie.title,
+                rating: rating,
+                notes: notes,
+                dateWatched: dateWatched,
+                status: status,
+                image: moviesData.find(m => m.title === selectedMovie.title)?.image || "images/NoMovie.avif",
+                watchmode_id: moviesData.find(m => m.title === selectedMovie.title)?.watchmode_id || ""
+            };
+            onSave(newMovie);
+        }
+    };
+
+    const handleKeyDown = (e) => {
+        // Submit form on Enter (except in textarea where we use Ctrl+Enter or Shift+Enter)
+        // Also exclude search input - it handles its own Enter key
+        if (e.key === 'Enter') {
+            const isSearchInput = e.target.closest('.search-input-wrapper') || 
+                                  e.target.classList.contains('search-input');
+            
+            if (isSearchInput) {
+                // Let SearchBar handle its own Enter key
+                return;
+            }
+            
+            if (e.target.tagName === 'TEXTAREA') {
+                // For textarea, submit on Ctrl+Enter or Shift+Enter
+                if (e.ctrlKey || e.shiftKey) {
+                    e.preventDefault();
+                    handleSave(e);
+                }
+            } else {
+                // For other inputs, submit on Enter
+                e.preventDefault();
+                handleSave(e);
+            }
         }
     };
 
@@ -39,7 +93,7 @@ function AddMyMovie({ onSave }) {
                     <div className="selected-movie-title">{selectedMovie.title}</div>
                 </div>
             )}
-            <form>
+            <form onSubmit={handleSave} onKeyDown={handleKeyDown}>
                 <div className="form-control form-control--stack">
                     <label htmlFor="SearchMovie">Search Movie...</label>
                     <SearchBar onSearch={handleSearchSubmit} placeholder="Search for a movie title..." />
@@ -63,21 +117,37 @@ function AddMyMovie({ onSave }) {
                 </div>
                 <div className="form-control form-control--stack">
                     <label htmlFor="notes">Notes</label>
-                    <textarea name="notes" placeholder="Notes" rows="4"/>
+                    <textarea 
+                        name="notes" 
+                        placeholder="Notes" 
+                        rows="4"
+                        value={notes}
+                        onChange={(e) => setNotes(e.target.value)}
+                    />
                 </div>
                 <div className="form-control">
                     <label htmlFor="date-watched">Date Watched</label>
-                    <input type="date" name="date-watched"/>
+                    <input 
+                        type="date" 
+                        id="date-watched"
+                        name="date-watched"
+                        value={dateWatched}
+                        onChange={(e) => setDateWatched(e.target.value)}
+                    />
                 </div>
                 <div className="form-control">
                     <label htmlFor="status">Status</label>
-                    <select name="status" defaultValue="ongoing">
+                    <select 
+                        name="status" 
+                        value={status}
+                        onChange={(e) => setStatus(e.target.value)}
+                    >
                         <option value="ongoing">ongoing</option>
                         <option value="complete">complete</option>
                         <option value="cancelled">cancelled</option>
                     </select>
                 </div>
-                <button className="save">SAVE</button>
+                <button type="submit" className="save">SAVE</button>
             </form>
         </div>
     );

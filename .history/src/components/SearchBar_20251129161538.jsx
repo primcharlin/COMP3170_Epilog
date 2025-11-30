@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
-const SearchBar = () => {
+const SearchBar = ({ onSearch, placeholder = "Search for movies..." }) => {
     const [searchTerm, setSearchTerm] = useState("");
+    const inputRef = useRef(null);
 
     const handleSearch = (e) => {
         e.preventDefault();
-        console.log("Searching for:", searchTerm);
-        // Add your search logic here
+        e.stopPropagation(); // Prevent triggering parent form submission
+        if (typeof onSearch === "function" && searchTerm.trim()) {
+            onSearch(searchTerm);
+            // Blur the input to remove cursor focus
+            if (inputRef.current) {
+                inputRef.current.blur();
+            }
+        }
     };
 
     const handleInputChange = (e) => {
@@ -20,14 +27,21 @@ const SearchBar = () => {
                 className='search-form'>
                 <div className='search-input-wrapper'>
                     <input
+                        ref={inputRef}
                         type='text'
-                        placeholder='Search for movies...'
+                        placeholder={placeholder}
                         value={searchTerm}
                         onChange={handleInputChange}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter') {
+                                handleSearch(e);
+                            }
+                        }}
                         className='search-input'
                     />
                     <button
                         type='submit'
+                        onClick={handleSearch}
                         className='search-button'>
                         <svg
                             width='20'
