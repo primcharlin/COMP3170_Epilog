@@ -11,13 +11,15 @@ export const getMovieDetails = async (titleId) => {
     const response = await fetch(url);
     
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      const errorText = await response.text();
+      console.error(`API Error for titleId ${titleId} (${response.status}):`, errorText);
+      throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
     }
     
     const json = await response.json();
     return json;
   } catch (error) {
-    console.error('Error fetching movie details:', error);
+    console.error(`Error fetching movie details for titleId ${titleId}:`, error);
     throw error;
   }
 };
@@ -30,14 +32,29 @@ export const getMovieDetails = async (titleId) => {
 export const searchMovies = async (searchTerm) => {
   try {
     const url = `https://api.watchmode.com/v1/autocomplete-search/?apiKey=${apiKey}&search_value=${encodeURIComponent(searchTerm)}&search_type=2`;
+    console.log(`Searching movies with term: ${searchTerm}`);
     const response = await fetch(url);
     
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      const errorText = await response.text();
+      console.error(`API Error (${response.status}):`, errorText);
+      throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
     }
     
     const json = await response.json();
-    return json.results || [];
+    console.log(`Search response for "${searchTerm}":`, json);
+    
+    // Handle different response structures
+    if (Array.isArray(json)) {
+      return json;
+    } else if (json.results && Array.isArray(json.results)) {
+      return json.results;
+    } else if (json.data && Array.isArray(json.data)) {
+      return json.data;
+    } else {
+      console.warn('Unexpected response structure:', json);
+      return [];
+    }
   } catch (error) {
     console.error('Error searching movies:', error);
     throw error;
@@ -54,10 +71,14 @@ export const getGenres = async () => {
     const response = await fetch(url);
     
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      const errorText = await response.text();
+      console.error(`API Error for genres (${response.status}):`, errorText);
+      throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
     }
     
     const json = await response.json();
+    console.log('Genres response:', json);
+    
     // Create a map of genre ID to genre name
     const genresMap = {};
     if (Array.isArray(json)) {
@@ -66,7 +87,14 @@ export const getGenres = async () => {
           genresMap[genre.id] = genre.name;
         }
       });
+    } else if (json.genres && Array.isArray(json.genres)) {
+      json.genres.forEach(genre => {
+        if (genre.id && genre.name) {
+          genresMap[genre.id] = genre.name;
+        }
+      });
     }
+    console.log(`Created genres map with ${Object.keys(genresMap).length} genres`);
     return genresMap;
   } catch (error) {
     console.error('Error fetching genres:', error);
