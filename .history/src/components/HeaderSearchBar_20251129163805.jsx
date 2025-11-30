@@ -28,7 +28,7 @@ const HeaderSearchBar = () => {
             const filtered = movies
                 .filter(m => m.title && m.title.toLowerCase().includes(normalized))
                 .filter(m => m.title !== "No Movie Found")
-                .slice(0, 10); // Show max 10 results
+                .slice(0, 5); // Show max 5 results
             setFilteredMovies(filtered);
             setShowDropdown(filtered.length > 0);
         } else {
