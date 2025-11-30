@@ -43,6 +43,11 @@ body {
 .page-section {
     padding-left: 24px;
     padding-right: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .main-content {
@@ -1226,6 +1231,99 @@ button[type="submit"].save:active {
     flex-wrap: wrap;
 }
 
+/* Genre Carousel Section */
+.genre-carousel-section {
+    margin: 4rem 0;
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+}
+
+.genre-carousel-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.genre-carousel-title {
+    color: #e96e6e;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin: 0;
+    flex: 1;
+    max-width: 600px;
+}
+
+.genre-nav-button {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    flex-shrink: 0;
+}
+
+.genre-nav-button:hover {
+    background: rgba(233, 110, 110, 0.3);
+    border-color: #e96e6e;
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(233, 110, 110, 0.4);
+}
+
+.genre-nav-button:active {
+    transform: scale(0.95);
+}
+
+.genre-carousel-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.genre-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.genre-dot:hover {
+    background: rgba(233, 110, 110, 0.5);
+    border-color: #e96e6e;
+    transform: scale(1.2);
+}
+
+.genre-dot.active {
+    background: #e96e6e;
+    border-color: #e96e6e;
+    width: 14px;
+    height: 14px;
+    box-shadow: 0 0 10px rgba(233, 110, 110, 0.6);
+}
+
 /* Bonnie */
 .carousel-wrapper {
     position: relative;
@@ -2112,11 +2210,137 @@ button[type="submit"].save:active {
 }
 
 /* Browse styles */
+.genre-container {
+    margin-bottom: 3rem;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.genre-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 0 20px;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.genre-title {
+    color: #e96e6e;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    border-left: 4px solid #e96e6e;
+    padding-left: 1.5rem;
+    margin: 0;
+    flex: 0 0 auto;
+}
+
+.see-all-button {
+    background: linear-gradient(135deg, #e96e6e 0%, #d55a5a 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(233, 110, 110, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.see-all-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.see-all-button:hover::before {
+    left: 100%;
+}
+
+.see-all-button:hover {
+    background: linear-gradient(135deg, #d55a5a 0%, #c04a4a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(233, 110, 110, 0.6),
+        0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+}
+
+.see-all-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(233, 110, 110, 0.4);
+}
+
+.back-button {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    margin-bottom: 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.back-button:active {
+    transform: translateY(0);
+}
+
+.genre-count {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding: 0 20px;
+    width: 100%;
+}
+
 .browse-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 20px;
     padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-items: center;
 }
 
 /* Responsive Design */
@@ -2139,6 +2363,48 @@ button[type="submit"].save:active {
 }
 
 @media (max-width: 768px) {
+    .genre-carousel-header {
+        gap: 1rem;
+    }
+
+    .genre-carousel-title {
+        font-size: 1.8rem;
+    }
+
+    .genre-nav-button {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .genre-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .genre-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        border-left: none;
+        border-bottom: 4px solid #e96e6e;
+        padding-left: 0;
+        padding-bottom: 0.5rem;
+        width: 100%;
+    }
+
+    .see-all-button {
+        width: 100%;
+        text-align: center;
+        max-width: 300px;
+    }
+
+    .back-button {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+
     .header {
         padding: 1rem;
     }

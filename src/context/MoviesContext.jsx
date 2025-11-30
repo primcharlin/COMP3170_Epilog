@@ -44,8 +44,9 @@ export const MoviesProvider = ({ children }) => {
         const titleIds = new Set();
         searchResults.forEach((results) => {
           if (Array.isArray(results) && results.length > 0) {
-            // Take top 3 results from each search to get variety
-            results.slice(0, 3).forEach(result => {
+            // Take top 25 results from each search to ensure enough movies per genre
+            // (10 genres * 25 = 250 potential movies, but we'll limit to 200 for API efficiency)
+            results.slice(0, 25).forEach(result => {
               // WatchMode API returns different field names, try multiple possibilities
               if (result) {
                 const id = result.id || result.tmdb_id || result.imdb_id || result.watchmode_id;
@@ -62,7 +63,7 @@ export const MoviesProvider = ({ children }) => {
         // If we have title IDs, fetch their details
         let movieDetails = [];
         if (titleIds.size > 0) {
-          const titleIdArray = Array.from(titleIds).slice(0, 30); // Limit to 30 movies
+          const titleIdArray = Array.from(titleIds).slice(0, 200); // Limit to 200 movies to ensure enough for each genre
           console.log(`Fetching details for ${titleIdArray.length} movies from API...`);
           movieDetails = await getMultipleMovieDetails(titleIdArray);
         } else {

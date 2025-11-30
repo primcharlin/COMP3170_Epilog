@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import MovieCarousel from "../components/MovieCarousel";
@@ -17,6 +17,7 @@ const Home = () => {
     const [popupMessage, setPopupMessage] = useState("");
     const [randomMovie, setRandomMovie] = useState(null);
     const [randomMovieIndex, setRandomMovieIndex] = useState(null);
+    const [currentGenreIndex, setCurrentGenreIndex] = useState(0);
 
     const getRandomMovie = () => {
         const availableMovies = movieData.filter(
@@ -92,6 +93,45 @@ const Home = () => {
             setPopupMessage(`No movie found matching "${searchTerm}"`);
             setShowPopup(true);
         }
+    };
+
+    // Group movies by genre
+    const moviesByGenre = useMemo(() => {
+        const moviesToShow = movieData.slice(1); // Exclude the "No Movie Found" placeholder
+        const grouped = {};
+        
+        moviesToShow.forEach((movie, index) => {
+            const actualIndex = index + 1;
+            const movieWithIndex = { ...movie, actualIndex };
+            
+            if (movie.genres && movie.genres.length > 0) {
+                movie.genres.forEach(genre => {
+                    if (!grouped[genre]) {
+                        grouped[genre] = [];
+                    }
+                    grouped[genre].push(movieWithIndex);
+                });
+            } else {
+                if (!grouped["Other"]) {
+                    grouped["Other"] = [];
+                }
+                grouped["Other"].push(movieWithIndex);
+            }
+        });
+        
+        return grouped;
+    }, [movieData]);
+
+    const genreKeys = Object.keys(moviesByGenre).sort();
+    const currentGenre = genreKeys[currentGenreIndex] || "";
+    const currentGenreMovies = moviesByGenre[currentGenre] || [];
+
+    const handleNextGenre = () => {
+        setCurrentGenreIndex((prev) => (prev + 1) % genreKeys.length);
+    };
+
+    const handlePrevGenre = () => {
+        setCurrentGenreIndex((prev) => (prev - 1 + genreKeys.length) % genreKeys.length);
     };
 
     if (loading) {
@@ -204,10 +244,41 @@ const Home = () => {
                 )}
             </div>
 
-            <MovieCarousel
-                movies={movieData.slice(1)}
-                onAdd={handleAddToWatchlist}
-            />
+            {genreKeys.length > 0 && (
+                <div className="genre-carousel-section">
+                    <div className="genre-carousel-header">
+                        <button 
+                            className="genre-nav-button prev" 
+                            onClick={handlePrevGenre}
+                            aria-label="Previous genre"
+                        >
+                            &#10094;
+                        </button>
+                        <h2 className="genre-carousel-title">{currentGenre}</h2>
+                        <button 
+                            className="genre-nav-button next" 
+                            onClick={handleNextGenre}
+                            aria-label="Next genre"
+                        >
+                            &#10095;
+                        </button>
+                    </div>
+                    <div className="genre-carousel-indicator">
+                        {genreKeys.map((genre, index) => (
+                            <button
+                                key={genre}
+                                className={`genre-dot ${index === currentGenreIndex ? 'active' : ''}`}
+                                onClick={() => setCurrentGenreIndex(index)}
+                                aria-label={`View ${genre} genre`}
+                            />
+                        ))}
+                    </div>
+                    <MovieCarousel
+                        movies={currentGenreMovies}
+                        onAdd={handleAddToWatchlist}
+                    />
+                </div>
+            )}
 
             {showPopup && (
                 <Popup
