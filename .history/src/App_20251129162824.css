@@ -205,7 +205,6 @@ body {
 .header-search-container {
     display: flex;
     align-items: center;
-    position: relative;
 }
 
 .header-search-form {
