@@ -76,39 +76,39 @@ const MyMovies = () => {
                 <AddMyMovie onSave={handleAddMovie} />
             </Modal>
             <div className="my-movies-container">
-                {myMoviesData.map((myMovie) => {
-                    // Find the corresponding movie data from API for the image
-                    const movieData = moviesData.find(m => m.title === myMovie.title);
-                    const prioritizedImage = movieData?.image || myMovie.image;
-                    const posterUrl = prioritizedImage
-                        ? (prioritizedImage.startsWith('http') || prioritizedImage.startsWith('/') 
-                            ? prioritizedImage 
-                            : `/${prioritizedImage}`)
-                        : "/images/NoMovie.avif";
-                    
-                    return (
-                        <DVDMovie
-                            key={myMovie.title}
-                            title={myMovie.title}
-                            posterUrl={posterUrl}
-                            onClick={() => { 
-                                setSelectedMovie({
-                                    ...myMovie,
-                                    image: prioritizedImage || "images/NoMovie.avif"
-                                }); 
-                                setIsEditModalOpen(true); 
-                            }}
-                            onRemove={handleRemoveMovie}
-                        />
-                    );
-                })}
-                {/* Example hardcoded movies */}
-               {/* <DVDMovie title="50 First Dates" posterUrl="/images/50FirstDates.jpg" onClick={() => { setSelectedMovie ({title: "50 First Dates", posterUrl: "/images/50FirstDates.jpg", rating: "4", notes: "One of the best Adam Sandlar movies!", dateWatched: "2025-08-15", status: "completed"}); setIsEditModalOpen(true)}} />
-                <DVDMovie title="Happy Gilmore" posterUrl="/images/HappyGilmore.jpg" onClick={() => { setSelectedMovie("Happy Gilmore"); setIsEditModalOpen(true); }} />
-                <DVDMovie title="Happy Gilmore 2" posterUrl="/images/HappyGilmore2.webp" onClick={() => { setSelectedMovie("Happy Gilmore 2"); setIsEditModalOpen(true); }} />
-                <DVDMovie title="Mr. Deeds" posterUrl="/images/MrDeeds.jpg" onClick={() => { setSelectedMovie("Mr. Deeds"); setIsEditModalOpen(true); }} />
-                <DVDMovie title="The Hot Chick" onClick={() => { setSelectedMovie("The Hot Chick"); setIsEditModalOpen(true); }} />*/}
-    
+                {myMoviesData.length === 0 ? (
+                    <div className="empty-text">
+                        <p>No movies in your collection yet.</p>
+                        <p>Click "Add Movie" to start adding movies you've watched!</p>
+                    </div>
+                ) : (
+                    myMoviesData.map((myMovie) => {
+                        // Find the corresponding movie data from API for the image
+                        const movieData = moviesData.find(m => m.title === myMovie.title);
+                        const prioritizedImage = movieData?.image || myMovie.image;
+                        const posterUrl = prioritizedImage
+                            ? (prioritizedImage.startsWith('http') || prioritizedImage.startsWith('/') 
+                                ? prioritizedImage 
+                                : `/${prioritizedImage}`)
+                            : "/images/NoMovie.avif";
+                        
+                        return (
+                            <DVDMovie
+                                key={myMovie.title}
+                                title={myMovie.title}
+                                posterUrl={posterUrl}
+                                onClick={() => { 
+                                    setSelectedMovie({
+                                        ...myMovie,
+                                        image: prioritizedImage || "images/NoMovie.avif"
+                                    }); 
+                                    setIsEditModalOpen(true); 
+                                }}
+                                onRemove={handleRemoveMovie}
+                            />
+                        );
+                    })
+                )}
             </div>
             <Modal
                 isOpen={isEditModalOpen}

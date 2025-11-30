@@ -8,6 +8,7 @@ import Browse from "./pages/Browse";
 import MyMovies from "./pages/MyMovies";
 import Watchlist from "./pages/Watchlist";
 import Movie from "./pages/Moive";
+import GenreMovies from "./pages/GenreMovies";
 
 function App() {
     return (
@@ -40,6 +41,10 @@ function App() {
                             <Route
                                 path='/movie/:id'
                                 element={<Movie />}
+                            />
+                            <Route
+                                path='/genre/:genreName'
+                                element={<GenreMovies />}
                             />
                             
                         </Routes>
