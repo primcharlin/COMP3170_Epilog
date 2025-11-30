@@ -99,13 +99,13 @@ const Home = () => {
     const moviesByGenre = useMemo(() => {
         const moviesToShow = movieData.slice(1); // Exclude the "No Movie Found" placeholder
         const grouped = {};
-        
+
         moviesToShow.forEach((movie, index) => {
             const actualIndex = index + 1;
             const movieWithIndex = { ...movie, actualIndex };
-            
+
             if (movie.genres && movie.genres.length > 0) {
-                movie.genres.forEach(genre => {
+                movie.genres.forEach((genre) => {
                     if (!grouped[genre]) {
                         grouped[genre] = [];
                     }
@@ -118,7 +118,7 @@ const Home = () => {
                 grouped["Other"].push(movieWithIndex);
             }
         });
-        
+
         return grouped;
     }, [movieData]);
 
@@ -131,7 +131,42 @@ const Home = () => {
     };
 
     const handlePrevGenre = () => {
-        setCurrentGenreIndex((prev) => (prev - 1 + genreKeys.length) % genreKeys.length);
+        setCurrentGenreIndex(
+            (prev) => (prev - 1 + genreKeys.length) % genreKeys.length
+        );
+    };
+
+    // Calculate which dots to show (max 7 dots, centered around current)
+    const getVisibleDots = () => {
+        const maxDots = 7;
+        const totalGenres = genreKeys.length;
+
+        if (totalGenres <= maxDots) {
+            return genreKeys.map((_, index) => index);
+        }
+
+        const halfWindow = Math.floor(maxDots / 2);
+        let start = currentGenreIndex - halfWindow;
+        let end = currentGenreIndex + halfWindow;
+
+        // Adjust if we're near the beginning
+        if (start < 0) {
+            end += Math.abs(start);
+            start = 0;
+        }
+
+        // Adjust if we're near the end
+        if (end >= totalGenres) {
+            start -= end - totalGenres + 1;
+            end = totalGenres - 1;
+        }
+
+        const indices = [];
+        for (let i = start; i <= end; i++) {
+            indices.push(i);
+        }
+
+        return indices;
     };
 
     if (loading) {
@@ -245,31 +280,32 @@ const Home = () => {
             </div>
 
             {genreKeys.length > 0 && (
-                <div className="genre-carousel-section">
-                    <div className="genre-carousel-header">
-                        <button 
-                            className="genre-nav-button prev" 
+                <div className='genre-carousel-section'>
+                    <div className='genre-carousel-header'>
+                        <button
+                            className='genre-nav-button prev'
                             onClick={handlePrevGenre}
-                            aria-label="Previous genre"
-                        >
+                            aria-label='Previous genre'>
                             &#10094;
                         </button>
-                        <h2 className="genre-carousel-title">{currentGenre}</h2>
-                        <button 
-                            className="genre-nav-button next" 
+                        <h2 className='genre-carousel-title'>{currentGenre}</h2>
+                        <button
+                            className='genre-nav-button next'
                             onClick={handleNextGenre}
-                            aria-label="Next genre"
-                        >
+                            aria-label='Next genre'>
                             &#10095;
                         </button>
                     </div>
-                    <div className="genre-carousel-indicator">
-                        {genreKeys.map((genre, index) => (
+                    <div className='genre-carousel-indicator'>
+                        {getVisibleDots().map((index) => (
                             <button
-                                key={genre}
-                                className={`genre-dot ${index === currentGenreIndex ? 'active' : ''}`}
+                                key={genreKeys[index]}
+                                className={`genre-dot ${
+                                    index === currentGenreIndex ? "active" : ""
+                                }`}
                                 onClick={() => setCurrentGenreIndex(index)}
-                                aria-label={`View ${genre} genre`}
+                                aria-label={`View ${genreKeys[index]} genre`}
+                                title={genreKeys[index]}
                             />
                         ))}
                     </div>
